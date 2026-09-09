@@ -22,7 +22,6 @@
       --btn-text: #4a3e56;
     }
 
-    /* Sakin / Durgun: Pastel, ferah buz mavisi-lila */
     [data-theme="sakin"] {
       --bg-color: #eef2f7;
       --card-bg: #ffffff;
@@ -33,7 +32,6 @@
       --btn-text: #37474f;
     }
 
-    /* Yorgun / Dinlenme: Soft, mat lavanta tonları */
     [data-theme="yorgun"] {
       --bg-color: #ece8f2;
       --card-bg: #f8f6fb;
@@ -44,7 +42,6 @@
       --btn-text: #3f3947;
     }
 
-    /* Karmaşık / Puslu: Derin, gizemli koyu lila */
     [data-theme="karmasik"] {
       --bg-color: #2a2438;
       --card-bg: #352f44;
@@ -55,7 +52,6 @@
       --btn-text: #e2d9f3;
     }
 
-    /* Meraklı / Canlı: Sıcak mürdüm-pembe lila */
     [data-theme="merakli"] {
       --bg-color: #faf0f5;
       --card-bg: #ffffff;
@@ -66,7 +62,6 @@
       --btn-text: #4a2e35;
     }
 
-    /* Üzgün: Hüznü kucaklayan derin gece lila tonları */
     [data-theme="uzgun"] {
       --bg-color: #232230;
       --card-bg: #2d2b3d;
@@ -77,19 +72,7 @@
       --btn-text: #e0dbe8;
     }
 
-    /* Kaygılı / Endişeli: Sakinleştirici açık adaçayı-lila */
     [data-theme="kaygili"] {
-      --bg-color: #f0f4f1;
-      --card-bg: #ffffff;
-      --text-color: #2e3d34;
-      --accent-color: #6b8e72;
-      --border-color: #d6e2d8;
-      --btn-bg: #e1ebd3;
-      --btn-text: #2e3d34;
-    }
-
-    /* Minnettar / Şükür: Ilık altın-lila dokunuşu */
-    [data-theme="minnettar"] {
       --bg-color: #faf6f0;
       --card-bg: #ffffff;
       --text-color: #4a4033;
@@ -99,8 +82,18 @@
       --btn-text: #4a4033;
     }
 
+    [data-theme="minnettar"] {
+      --bg-color: #f0f4f1;
+      --card-bg: #ffffff;
+      --text-color: #2e3d34;
+      --accent-color: #6b8e72;
+      --border-color: #d6e2d8;
+      --btn-bg: #e1ebd3;
+      --btn-text: #2e3d34;
+    }
+
     /* ==========================================
-       GENEL SAYFA DÜZENİ VE ANİMASYONLAR
+       GENEL SAYFA DÜZENİ
        ========================================== */
     * {
       box-sizing: border-box;
@@ -116,7 +109,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px;
+      padding: 30px 20px;
       transition: background-color 0.6s ease, color 0.6s ease;
     }
 
@@ -189,7 +182,7 @@
     }
 
     /* ==========================================
-       İÇERİK KARTLARI VE MESAJA ÖZEL ALAN
+       İÇERİK KARTLARI
        ========================================== */
     .display-area {
       min-height: 250px;
@@ -218,7 +211,7 @@
     }
 
     .content-section {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .content-section:last-child {
@@ -231,14 +224,14 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       opacity: 0.6;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .quote-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       line-height: 1.5;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.4rem;
       font-weight: 400;
     }
 
@@ -250,25 +243,37 @@
       text-transform: uppercase;
     }
 
+    .book-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 0.3rem;
+    }
+
     .body-text {
       font-size: 0.98rem;
-      line-height: 1.6;
+      line-height: 1.65;
       opacity: 0.9;
     }
 
-    .highlight-box {
-      font-style: italic;
-      padding: 12px 16px;
+    /* Yazar Köşesi Özel Stili */
+    .author-box {
       background-color: var(--btn-bg);
-      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
       border-left: 3px solid var(--accent-color);
+    }
+
+    .author-box .body-text {
+      font-style: italic;
     }
 
     .divider {
       border: 0;
       height: 1px;
       background-color: var(--border-color);
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
       opacity: 0.5;
     }
 
@@ -276,7 +281,6 @@
       display: none;
     }
 
-    /* Yumuşak Ekrana Gelme Efekti */
     .fade-in {
       animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -292,10 +296,10 @@
       }
     }
 
-    /* Responsive İnce Ayar */
     @media (max-width: 480px) {
       h1 { font-size: 2.3rem; }
-      .quote-text { font-size: 1.35rem; }
+      .quote-text { font-size: 1.3rem; }
+      .book-text { font-size: 1.15rem; }
       .card { padding: 1.8rem 1.2rem; }
     }
   </style>
@@ -326,17 +330,27 @@
       <div class="display-area">
         <!-- 1. Başlangıç Kartı -->
         <div id="placeholder-card" class="card placeholder-card">
-          <p>Bugün kalbinde ve zihninde ne taşıyorsun?<br>Sana özel tefekkür, ayet ve içsel soruyu görmek için yukarıdan bir ruh hali seç.</p>
+          <p>Bugün kalbinde ve zihninde ne taşıyorsun?<br>Sana özel içerikleri keşfetmek için yukarıdan bir ruh hali seç.</p>
         </div>
 
         <!-- 2. İçerik Kartı -->
         <div id="content-card" class="card hidden">
           <!-- Ayet Bölümü -->
           <div class="content-section">
+            <span class="section-label">Ayet-i Kerime</span>
             <p id="quote-text" class="quote-text"></p>
             <span id="source-text" class="source-text"></span>
           </div>
           
+          <hr class="divider">
+
+          <!-- Kitap Kesiti Bölümü -->
+          <div class="content-section">
+            <span class="section-label">Kitaptan Bir İz</span>
+            <p id="book-quote" class="book-text"></p>
+            <span id="book-source" class="source-text"></span>
+          </div>
+
           <hr class="divider">
 
           <!-- Tefekkür Bölümü -->
@@ -345,10 +359,28 @@
             <p id="reflection-text" class="body-text"></p>
           </div>
 
-          <!-- Yönlendirici Soru Bölümü -->
+          <hr class="divider">
+
+          <!-- Duyguya Özel Dinamik Bölüm -->
           <div class="content-section">
-            <span class="section-label">İçsel Soru / Öneri</span>
-            <p id="question-text" class="body-text highlight-box"></p>
+            <span id="custom-label" class="section-label"></span>
+            <p id="custom-text" class="body-text"></p>
+          </div>
+
+          <hr class="divider">
+
+          <!-- Matematiğin Felsefesi Bölümü -->
+          <div class="content-section">
+            <span class="section-label">Matematik ve Hayat</span>
+            <p id="math-text" class="body-text"></p>
+          </div>
+
+          <hr class="divider">
+
+          <!-- Yazarın Kaleminden -->
+          <div class="content-section author-box">
+            <span class="section-label">Yazarın Kaleminden</span>
+            <p id="author-text" class="body-text"></p>
           </div>
         </div>
       </div>
@@ -356,51 +388,80 @@
   </div>
 
   <script>
-    // ==========================================
-    // RUH HALLERİNE ÖZEL İÇERİK VERİ TABANI
-    // ==========================================
+    // Yazarın Köşe Yazısı
+    const yazarinYazisi = "Burası senin kaleme alacağın kişisel düşünceler, köşe yazıları veya notlar için ayrılmıştır. Kendi yazılarını eklemeye başladığında bu alanda görünecektir.";
+
+    // Ruh Hallerine Özel İçerik Veri Tabanı
     const moodContents = {
       sakin: {
         quote: "“Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.”",
         source: "Râd Suresi, 28. Ayet",
-        reflection: "Zihnin durgun bir su gibi olduğunda, etrafındaki güzellikleri yansıtması kolaylaşır. Bugün hızlanmak zorunda değilsin.",
-        question: "Şu an etrafında duran ve fark etmediğin 3 ses veya detay nedir?"
+        bookQuote: "“Ruhunun derinliklerindeki o sessiz yeri bul; oraya ne fırtınalar ulaşabilir ne de dünyanın gürültüsü.”",
+        bookSource: "Marcus Aurelius — Kendime Düşünceler",
+        reflection: "Zihnin durgun bir su gibi olduğunda, etrafındaki güzellikleri yansıtması kolaylaşır. Bugün hızlanmak zorunda değilsin; sakince var olmanın tadını çıkar.",
+        customLabel: "Bugün İçin Küçük Bir Plan",
+        customText: "Zihnin berrak iken uzun zamandır ertelediğin bir kitabı açabilir ya da sessiz bir yürüyüşte sadece adımlarının sesini dinleyebilirsin.",
+        mathText: "Altın Oran (Phi = 1.618...): Doğadaki en dengeli estetik, çatışmadan değil, parçaların birbiriyle kusursuz oranından doğar. Sakinlik de zihnin kendi içsel oranını bulmasıdır."
       },
       yorgun: {
         quote: "“Şüphesiz her güçlükle beraber bir kolaylık vardır.”",
         source: "İnşirah Suresi, 5. Ayet",
-        reflection: "Yorulmak, yanlış yolda olduğun anlamına gelmez; sadece insan olduğunu ve sınırlara sahip olduğunu hatırlatır. Bugün sadece dur ve nefes al.",
-        question: "Omuzlarındaki hangi yükü bugünlük kenara bırakabilirsin?"
+        bookQuote: "“Yorgunluğum, dünyayla kurduğum bağın ağırlığındandır. Bazen sadece durmak gerekir.”",
+        bookSource: "Fernando Pessoa — Huzursuzluğun Kitabı",
+        reflection: "Yorulmak, yanlış yolda olduğun anlamına gelmez; sadece insan olduğunu ve sınırlara sahip olduğunu hatırlatır. Bugün kendine izin ver ve dinlen.",
+        customLabel: "Suçluluk Duymadan Durma İzni",
+        customText: "Dünya, sen birkaç saat hiçbir şey yapmasan da dönmeye devam edecek. Üretmediğin anlarda da değerli olduğunu unutma.",
+        mathText: "Sıfır (0) Kavramı: Yutan eleman gibi görünse de toplama işleminde etkisiz, konum belirlemede ise başlangıç noktasıdır (orjin). Bazen sıfırlanmak, yeniden başlamak için gereklidir."
       },
       uzgun: {
         quote: "“Gevşemeyin, üzülmeyin; eğer inanıyorsanız üstün olan sizsiniz.”",
         source: "Âl-i İmrân Suresi, 139. Ayet",
-        reflection: "Hüzün, kalbin derinleşme çabasıdır. Duygunu bastırmak yerine ona yer aç; geçmesine izin verilen her duygu yerini huzura bırakır.",
-        question: "Kendine şu an şefkatli bir dost gibi baksaydın ona ne söylerdin?"
+        bookQuote: "“Gözyaşları, ruhun yıkanma biçimidir. Bir fırtına sonrası gökyüzünün temizlenmesi gibi.”",
+        bookSource: "Hermann Hesse — Siddhartha",
+        reflection: "Hüzün, kalbin derinleşme çabasıdır. Duygunu bastırmak yerine ona yer aç; geçmesine izin verilen her duygu zamanla yerini içsel bir huzura bırakır.",
+        customLabel: "Küçük Bir Umut Notu",
+        customText: "Şu an hissettiğin ağırlık, fırtınadan hemen önceki havanın basıklığı gibidir. Yağmur yağacak, hava temizlenecek ve sen tekrar ferahça nefes alacaksın.",
+        mathText: "Negatif Sayıların Çarpımı: Matematikte iki negatif sayının çarpımı pozitif bir değer verir (- x - = +). Hayatta da üst üste gelen iki zorluk, beklenmedik güçlü bir farkındalık doğurabilir."
       },
       kaygili: {
         quote: "“Allah bana yeter. O'ndan başka ilâh yoktur. Ben yalnızca O'na tevekkül ettim.”",
         source: "Tevbe Suresi, 129. Ayet",
-        reflection: "Kaygı, henüz gerçekleşmemiş bir geleceği bugünden sırtlanma çabasıdır. Kontrol edemediğin şeyleri serbest bırak.",
-        question: "Şu an tam olarak güvende olduğun bu ana odaklanabilir misin?"
+        bookQuote: "“Geleceğin yükünü bugünden omuzlamak, bugünün neşesini yok etmekten başka bir işe yaramaz.”",
+        bookSource: "Seneca — Yaşamın Kısalığı Üzerine",
+        reflection: "Kaygı, henüz gerçekleşmemiş bir geleceği bugünden sırtlanma çabasıdır. Kontrol edemediğin detayları serbest bırak ve zihnini şu ana davet et.",
+        customLabel: "Topraklanma Egzersizi",
+        customText: "Şu an gözlerini kapat. 4 saniye derin nefes al, 4 saniye tut ve 6 saniyede yavaşça ver. Zihnindeki felaket senaryoları şu an gerçek değil; sen güvendesin.",
+        mathText: "Limit Kavramı: Bir noktaya sonsuzca yaklaşırsın ama asla o noktadaki belirsizlik olamazsın. Kaygılar da zihnimizde sonsuz büyüyen belirsizliklerdir; limite değil, fonksiyona odaklanmak gerekir."
       },
       karmasik: {
         quote: "“Olur ki bir şeyden hoşlanmazsınız ama o sizin için hayırlıdır; Allah bilir, siz bilmezsiniz.”",
         source: "Bakara Suresi, 216. Ayet",
-        reflection: "Net olmamak da sürecin bir parçası. Her şeyi hemen çözmek zorunda değilsin; bazen sisin dağılmasını beklemek en doğrusudur.",
-        question: "Kafanı karıştıran şeyleri bir kâğıda döküp dışarıdan bakmayı denedin mi?"
+        bookQuote: "“Zihnin karmaşık olduğu anlarda hiçbir karara zorlama kendini. Sis dağları sardığında yolcunun durması gerekir.”",
+        bookSource: "Amin Maalouf — Semerkant",
+        reflection: "Net olmamak da sürecin doğal bir parçası. Her şeyi hemen çözmek ya da anlamlandırmak zorunda değilsin; bazen sisin dağılmasını beklemek en doğrusudur.",
+        customLabel: "Düğüm Çözücü Yaklaşım",
+        customText: "Kafandaki tüm soruları bugün çözmek zorunda değilsin. Şu an kontrol edebileceğin tek bir küçük adımı seç ve gerisini zamana bırak.",
+        mathText: "Fraktal Geometri: İlk bakışta karmaşık ve kaos dolu görünen doğa şekilleri (kar tanesi, kıyılar), yakından incelendiğinde muazzam bir iç tekrara sahiptir. Karmaşa, düzenin henüz keşfedilmemiş halidir."
       },
       merakli: {
         quote: "“Göklerin ve yerin yaratılışında akıl sahipleri için ibretler vardır.”",
         source: "Âl-i İmrân Suresi, 190. Ayet",
-        reflection: "Soru sormak, ruhun keşif yolculuğudur. Öğrenme arzusu zihni taze tutar ve bakış açını genişletir.",
-        question: "Bugün daha önce hiç dikkat etmediğin neyi incelemek istersin?"
+        bookQuote: "“Dünya bir kitaptır ve seyahat etmeyenler veya merak duymayanlar sadece bir sayfasını okur.”",
+        bookSource: "St. Augustinus — İtiraflar",
+        reflection: "Soru sormak ve öğrenmek, ruhun keşif yolculuğudur. Merak duygunu besle; her detayda gizlenmiş incelikleri fark etmek bakış açını tazeleyecektir.",
+        customLabel: "Ufuk Açıcı Bir Detay",
+        customText: "Arılar birbirlerine çiçeklerin yerini tarif etmek için özel bir dans yaparlar ve bu yön hesabını güneşin açısına göre milimetrik olarak gerçekleştirirler.",
+        mathText: "Asal Sayılar: Kendinden ve 1'den başka hiçbir sayıya bölünmeyen özel yapılar. Sayılar teorisinin bu gizemli yapıtaşları, karmaşık evrenin özgün ve saf parçalarıdır."
       },
       minnettar: {
         quote: "“Eğer şükrederseniz, elbette size olan nimetlerimi artırırım.”",
         source: "İbrâhîm Suresi, 7. Ayet",
-        reflection: "Şükür, sahip olunan küçük detaylardaki büyük zenginliği görebilme sanatıdır. Farkedilen her nimet çoğalır.",
-        question: "Bugün varlığı için sessizce teşekkür etmek istediğin şey nedir?"
+        bookQuote: "“Elimde olan küçük şeylerle mutlu olmayı öğrendiğimde, evrenin bana ne kadar cömert davrandığını fark ettim.”",
+        bookSource: "Henry David Thoreau — Walden",
+        reflection: "Şükür, sahip olunan küçük detaylardaki büyük zenginliği görebilme sanatıdır. Farkedilen ve değer verilen her nimet zihinde çoğalır.",
+        customLabel: "İyiliği Çoğaltma Görevi",
+        customText: "İçindeki bu güzel enerjiyi bugün sevdiğin birine sebepsizce 'İyi ki varsın' mesajı atarak veya bir canlıya tebessüm ederek paylaş.",
+        mathText: "Sonsuzluk (∞) ve Birikimli Toplam: Küçük ama sürekliliği olan adımlar, integralle birleştiğinde sonsuz büyüklükte alanlar yaratır. Minnet de birikerek hayatı genişleten bir integraldir."
       }
     };
 
@@ -408,38 +469,44 @@
     const buttons = document.querySelectorAll('.mood-btn');
     const placeholderCard = document.getElementById('placeholder-card');
     const contentCard = document.getElementById('content-card');
+    
     const quoteText = document.getElementById('quote-text');
     const sourceText = document.getElementById('source-text');
+    const bookQuote = document.getElementById('book-quote');
+    const bookSource = document.getElementById('book-source');
     const reflectionText = document.getElementById('reflection-text');
-    const questionText = document.getElementById('question-text');
+    const customLabel = document.getElementById('custom-label');
+    const customText = document.getElementById('custom-text');
+    const mathText = document.getElementById('math-text');
+    const authorText = document.getElementById('author-text');
 
     // Tıklama Olayları
     buttons.forEach(button => {
       button.addEventListener('click', function() {
         const selectedMood = this.getAttribute('data-mood');
 
-        // 1. Tüm sayfaya yeni tema rengini uygula
         document.documentElement.setAttribute('data-theme', selectedMood);
 
-        // 2. Butonların aktiflik durumunu güncelle
         buttons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
 
-        // 3. İçerik kartını doldur ve animasyonla göster
         const content = moodContents[selectedMood];
         if (content) {
           quoteText.textContent = content.quote;
           sourceText.textContent = content.source;
+          bookQuote.textContent = content.bookQuote;
+          bookSource.textContent = content.bookSource;
           reflectionText.textContent = content.reflection;
-          questionText.textContent = content.question;
+          customLabel.textContent = content.customLabel;
+          customText.textContent = content.customText;
+          mathText.textContent = content.mathText;
+          authorText.textContent = yazarinYazisi;
 
-          // Placeholder'ı gizle, içerik kartını aç
           placeholderCard.classList.add('hidden');
           contentCard.classList.remove('hidden');
           
-          // Animasyonu yenile
           contentCard.classList.remove('fade-in');
-          void contentCard.offsetWidth; // Reflow
+          void contentCard.offsetWidth;
           contentCard.classList.add('fade-in');
         }
       });
