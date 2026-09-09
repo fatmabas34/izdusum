@@ -1,448 +1,373 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İZDÜŞÜM — Fikir, Edebiyat & Kendini Keşif Dergisi</title>
-    <style>
-        :root {
-            --bg-gradient: linear-gradient(135deg, #eef2f3 0%, #e6dee9 100%);
-            --card-bg: #ffffff;
-            --primary-accent: #7b5294;
-            --secondary-accent: #9b6bcc;
-            --dark-text: #2c2235;
-            --soft-purple: #f0ebf7;
-            --border-color: #d8cde3;
-            --shadow-soft: 0 10px 25px rgba(123, 82, 148, 0.12);
-            --shadow-hover: 0 15px 30px rgba(123, 82, 148, 0.22);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İzdüşüm | Dijital Yansıma ve Felsefi Keşif</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================
+       TEMA VE RENK PALETLERİ (CSS Variables)
+       ========================================== */
+    :root {
+      --bg-color: #f4f0f8;
+      --card-bg: #ffffff;
+      --text-color: #4a3e56;
+      --accent-color: #8a63d2;
+      --border-color: #e2d9f3;
+      --btn-bg: #ede7f6;
+      --btn-text: #4a3e56;
+    }
 
-        body {
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--dark-text);
-            font-family: 'Georgia', serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-        }
+    /* Sakin / Durgun: Pastel, ferah buz mavisi-lila */
+    [data-theme="sakin"] {
+      --bg-color: #eef2f7;
+      --card-bg: #ffffff;
+      --text-color: #37474f;
+      --accent-color: #5c7c99;
+      --border-color: #d3dfeb;
+      --btn-bg: #e1e8f0;
+      --btn-text: #37474f;
+    }
 
-        /* Dergi Başlık Alanı */
-        header {
-            text-align: center;
-            padding: 50px 20px 30px;
-            position: relative;
-        }
+    /* Yorgun / Dinlenme: Soft, mat lavanta tonları */
+    [data-theme="yorgun"] {
+      --bg-color: #ece8f2;
+      --card-bg: #f8f6fb;
+      --text-color: #3f3947;
+      --accent-color: #7b699a;
+      --border-color: #d8cfe5;
+      --btn-bg: #dfd8ea;
+      --btn-text: #3f3947;
+    }
 
-        header::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
-            margin: 20px auto 0;
-        }
+    /* Karmaşık / Puslu: Derin, gizemli koyu lila */
+    [data-theme="karmasik"] {
+      --bg-color: #2a2438;
+      --card-bg: #352f44;
+      --text-color: #e2d9f3;
+      --accent-color: #a27b5c;
+      --border-color: #5c5470;
+      --btn-bg: #473e5d;
+      --btn-text: #e2d9f3;
+    }
 
-        header h1 {
-            font-size: 3.5rem;
-            letter-spacing: 8px;
-            margin: 0;
-            color: var(--dark-text);
-            font-weight: normal;
-        }
+    /* Meraklı / Canlı: Sıcak mürdüm-pembe lila */
+    [data-theme="merakli"] {
+      --bg-color: #faf0f5;
+      --card-bg: #ffffff;
+      --text-color: #4a2e35;
+      --accent-color: #c05c83;
+      --border-color: #f3d2e0;
+      --btn-bg: #f5e1eb;
+      --btn-text: #4a2e35;
+    }
 
-        header p {
-            font-style: italic;
-            color: var(--primary-accent);
-            margin-top: 8px;
-            font-size: 1.05rem;
-        }
+    /* Üzgün: Hüznü kucaklayan derin gece lila tonları */
+    [data-theme="uzgun"] {
+      --bg-color: #232230;
+      --card-bg: #2d2b3d;
+      --text-color: #e0dbe8;
+      --accent-color: #9d8abf;
+      --border-color: #403d54;
+      --btn-bg: #3a374c;
+      --btn-text: #e0dbe8;
+    }
 
-        .issue-tag {
-            display: inline-block;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            color: var(--primary-accent);
-            padding: 5px 18px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+    /* Kaygılı / Endişeli: Sakinleştirici açık adaçayı-lila */
+    [data-theme="kaygili"] {
+      --bg-color: #f0f4f1;
+      --card-bg: #ffffff;
+      --text-color: #2e3d34;
+      --accent-color: #6b8e72;
+      --border-color: #d6e2d8;
+      --btn-bg: #e1ebd3;
+      --btn-text: #2e3d34;
+    }
 
-        .container {
-            max-width: 920px;
-            margin: 20px auto 40px;
-            padding: 0 20px;
-        }
+    /* Minnettar / Şükür: Ilık altın-lila dokunuşu */
+    [data-theme="minnettar"] {
+      --bg-color: #faf6f0;
+      --card-bg: #ffffff;
+      --text-color: #4a4033;
+      --accent-color: #c49a45;
+      --border-color: #f0e4d3;
+      --btn-bg: #f5eae0;
+      --btn-text: #4a4033;
+    }
 
-        /* Ruh Hali Paneli */
-        .mood-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow-soft);
-            border-top: 4px solid var(--primary-accent);
-        }
+    /* ==========================================
+       GENEL SAYFA DÜZENİ VE ANİMASYONLAR
+       ========================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .mood-section h3 {
-            margin-top: 0;
-            font-size: 1.25rem;
-            font-weight: normal;
-            color: var(--dark-text);
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      transition: background-color 0.6s ease, color 0.6s ease;
+    }
 
-        .mood-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
+    .container {
+      max-width: 650px;
+      width: 100%;
+      text-align: center;
+    }
 
-        .mood-btn {
-            background: var(--soft-purple);
-            border: 1px solid var(--border-color);
-            color: var(--dark-text);
-            padding: 12px 22px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
+    header {
+      margin-bottom: 2.5rem;
+    }
 
-        .mood-btn:hover, .mood-btn.active {
-            background: var(--primary-accent);
-            color: #ffffff;
-            border-color: var(--primary-accent);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 82, 148, 0.3);
-        }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
 
-        /* 3'lü Kart Yapısı */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
+    .subtitle {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-left: 5px solid var(--primary-accent);
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
-        }
+    /* ==========================================
+       RUH HALİ BUTONLARI
+       ========================================== */
+    .mood-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
+    .mood-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 2.5rem;
+    }
 
-        .card h3 {
-            font-size: 0.85rem;
-            color: var(--primary-accent);
-            margin-top: 0;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+    .mood-btn {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: 1px solid var(--border-color);
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
 
-        /* Test Bölümü */
-        .test-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-            margin-bottom: 60px;
-            border-top: 4px solid var(--secondary-accent);
-        }
+    .mood-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-color);
+    }
 
-        .test-section h2 {
-            margin-top: 0;
-            color: var(--dark-text);
-            font-size: 1.5rem;
-            text-align: center;
-            font-weight: normal;
-        }
+    .mood-btn.active {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-        .question-box {
-            margin-top: 25px;
-            padding: 20px 0;
-            border-bottom: 1px dashed var(--border-color);
-        }
+    /* ==========================================
+       İÇERİK KARTLARI VE MESAJA ÖZEL ALAN
+       ========================================== */
+    .display-area {
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .options-btn { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      width: 100%;
+      transition: background-color 0.6s ease, border-color 0.6s ease;
+    }
 
-        .option-btn {
-            background: var(--soft-purple);
-            border: 1px solid var(--border-color);
-            padding: 12px 18px;
-            border-radius: 12px;
-            text-align: left;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.2s ease;
-        }
+    .placeholder-card {
+      font-style: italic;
+      opacity: 0.75;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
 
-        .option-btn:hover, .option-btn.selected {
-            background: var(--primary-accent);
-            color: white;
-            border-color: var(--primary-accent);
-            transform: translateX(5px);
-        }
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+    }
 
-        .test-result-btn {
-            display: block;
-            width: 100%;
-            background: var(--primary-accent);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 1rem;
-            margin-top: 25px;
-            cursor: pointer;
-            font-family: inherit;
-            box-shadow: 0 4px 12px rgba(123, 82, 148, 0.3);
-            transition: background 0.2s;
-        }
+    .source-text {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      text-transform: uppercase;
+    }
 
-        .test-result-btn:hover { background: #623d7a; }
+    .hidden {
+      display: none;
+    }
 
-        .result-box {
-            display: none;
-            margin-top: 25px;
-            background: var(--soft-purple);
-            padding: 25px;
-            border-radius: 14px;
-            border-left: 5px solid var(--primary-accent);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
+    /* Yumuşak Ekrana Gelme Efekti */
+    .fade-in {
+      animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-        /* Köşe Yazıları */
-        .articles-section {
-            margin-top: 60px;
-            padding-top: 20px;
-        }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .articles-section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--dark-text);
-            margin-bottom: 35px;
-            font-weight: normal;
-            letter-spacing: 1px;
-        }
-
-        .article-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-left: 6px solid var(--primary-accent);
-            padding: 30px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .article-card h3 { margin-top: 0; font-size: 1.4rem; color: var(--dark-text); }
-        .article-meta { font-size: 0.85rem; color: #7a6a8a; margin-bottom: 12px; font-style: italic; }
-
-        .read-more-btn {
-            background: transparent;
-            border: 2px solid var(--primary-accent);
-            color: var(--primary-accent);
-            padding: 8px 22px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.2s;
-        }
-
-        .read-more-btn:hover {
-            background: var(--primary-accent);
-            color: white;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.85rem;
-            color: var(--primary-accent);
-            margin-top: 60px;
-        }
-    </style>
+    /* Responsive İnce Ayar */
+    @media (max-width: 480px) {
+      h1 { font-size: 2.3rem; }
+      .quote-text { font-size: 1.35rem; }
+      .card { padding: 1.8rem 1.2rem; }
+    }
+  </style>
 </head>
 <body>
 
+  <div class="container">
     <header>
-        <div class="issue-tag">SAYI: 01</div>
-        <h1>İ Z D Ü Ş Ü M</h1>
-        <p>Aylık Fikir, Edebiyat ve İçsel Keşif Dergisi</p>
+      <h1>İ Z D Ü Ş Ü M</h1>
+      <p class="subtitle">Zihnin, Duyguların ve İçsel Yansımaların Durağı</p>
     </header>
 
-    <div class="container">
+    <main>
+      <p class="mood-title">Şu An Nasıl Hissediyorsun?</p>
+      
+      <!-- Ruh Hali Seçim Butonları -->
+      <div class="mood-buttons">
+        <button class="mood-btn" data-mood="sakin">Sakin</button>
+        <button class="mood-btn" data-mood="yorgun">Yorgun</button>
+        <button class="mood-btn" data-mood="uzgun">Üzgün</button>
+        <button class="mood-btn" data-mood="kaygili">Kaygılı</button>
+        <button class="mood-btn" data-mood="karmasik">Karmaşık</button>
+        <button class="mood-btn" data-mood="merakli">Meraklı</button>
+        <button class="mood-btn" data-mood="minnettar">Minnettar</button>
+      </div>
 
-        <!-- Mood Paneli -->
-        <div class="mood-section">
-            <h3>Bugün Zihnin ve Ruhun Nasıl Bir Sığınağa İhtiyaç Duyuyor?</h3>
-            <div class="mood-buttons">
-                <button class="mood-btn active" onclick="changeContent('durgun', this)">Durgunum / Huzur</button>
-                <button class="mood-btn" onclick="changeContent('yorgun', this)">Yorgunum / Teselli</button>
-                <button class="mood-btn" onclick="changeContent('merakli', this)">Meraklıyım / Bilgi</button>
-                <button class="mood-btn" onclick="changeContent('motive', this)">Motive Olmak İstiyorum</button>
-            </div>
+      <!-- Gösterim Alanı -->
+      <div class="display-area">
+        <!-- 1. Seçim Yapılmadan Önce Görünen Başlangıç Kartı -->
+        <div id="placeholder-card" class="card placeholder-card">
+          <p>Bugün kalbinde ve zihninde ne taşıyorsun?<br>Sana özel tefekkür ve teselli yazısını görmek için yukarıdan bir ruh hali seç.</p>
         </div>
 
-        <!-- Dinamik Kartlar -->
-        <div class="grid-cards">
-            <div class="card">
-                <h3>Günün Hikmeti</h3>
-                <p id="text-hikmet">"Haberiniz olsun ki, kalpler ancak Allah'ı anmakla huzur bulur."</p>
-                <small id="sub-hikmet">— Ra'd Suresi, 28</small>
-            </div>
-
-            <div class="card">
-                <h3>Satır Arası</h3>
-                <p id="text-satir">"İnsan, kendi içindeki derinliği keşfettikçe dışarıdaki gürültüden uzaklaşır."</p>
-                <small id="sub-satir">— Kitap Kesiti</small>
-            </div>
-
-            <div class="card">
-                <h3>Günün Kıvılcımı</h3>
-                <p id="text-kivilcim">Doğadaki kusursuz orantı: Altın oran, hem bir ayçiçeğinin tanelerinde hem de galaksilerin sarmal yapısında aynı matematiksel dengede ilerler.</p>
-                <small id="sub-kivilcim">— Matematik & Doğa</small>
-            </div>
+        <!-- 2. Seçim Yapıldıktan Sonra Açılan Ayet Kartı -->
+        <div id="content-card" class="card hidden">
+          <p id="quote-text" class="quote-text"></p>
+          <span id="source-text" class="source-text"></span>
         </div>
+      </div>
+    </main>
+  </div>
 
-        <!-- Kendini Keşfet Mini Testi -->
-        <div class="test-section">
-            <h2>Kendini Keşfet: Bugün Zihninin En Çok Neye İhtiyacı Var?</h2>
+  <script>
+    // ==========================================
+    // RUH HALLERİNE ÖZEL AYET VE İÇERİK VERİSİ
+    // ==========================================
+    const moodContents = {
+      sakin: {
+        quote: "“Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.”",
+        source: "Râd Suresi, 28. Ayet"
+      },
+      yorgun: {
+        quote: "“Şüphesiz her güçlükle beraber bir kolaylık vardır. Gerçekten, her güçlükle beraber bir kolaylık vardır.”",
+        source: "İnşirah Suresi, 5-6. Ayet"
+      },
+      uzgun: {
+        quote: "“Gevşemeyin, üzülmeyin; eğer inanıyorsanız üstün olan sizsiniz.”",
+        source: "Âl-i İmrân Suresi, 139. Ayet"
+      },
+      kaygili: {
+        quote: "“Allah bana yeter. O'ndan başka ilâh yoktur. Ben yalnızca O'na tevekkül ettim.”",
+        source: "Tevbe Suresi, 129. Ayet"
+      },
+      karmasik: {
+        quote: "“Olur ki bir şeyden hoşlanmazsınız ama o sizin için hayırlıdır; olur ki bir şeyi de seversiniz ama o sizin için şerdir. Allah bilir, siz bilmezsiniz.”",
+        source: "Bakara Suresi, 216. Ayet"
+      },
+      merakli: {
+        quote: "“Göklerin ve yerin yaratılışında, gece ile gündüzün birbiri ardınca gelişinde akıl sahipleri için ibretler vardır.”",
+        source: "Âl-i İmrân Suresi, 190. Ayet"
+      },
+      minnettar: {
+        quote: "“Eğer şükrederseniz, elbette size olan nimetlerimi artırırım.”",
+        source: "İbrâhîm Suresi, 7. Ayet"
+      }
+    };
 
-            <div class="question-box">
-                <p>1. Bir fincan çay veya kahve alıp pencereden bakarken aklından ilk ne geçer?</p>
-                <div class="options-btn">
-                    <button class="option-btn" onclick="selectOpt(1, 'A', this)">A) Tamamlanması gereken işler ve düzen kurulması gereken planlar.</button>
-                    <button class="option-btn" onclick="selectOpt(1, 'B', this)">B) Sessizlik, derin bir nefes ve zihinsel bir mola.</button>
-                </div>
-            </div>
+    // DOM Elementleri
+    const buttons = document.querySelectorAll('.mood-btn');
+    const placeholderCard = document.getElementById('placeholder-card');
+    const contentCard = document.getElementById('content-card');
+    const quoteText = document.getElementById('quote-text');
+    const sourceText = document.getElementById('source-text');
 
-            <div class="question-box">
-                <p>2. İçinde bulunduğun bu dönemde sana en çok hangisi ilham verir?</p>
-                <div class="options-btn">
-                    <button class="option-btn" onclick="selectOpt(2, 'A', this)">A) Mantıklı adımlar, yeni bir bilgi veya çözüm bekleyen bir mantık bulmacası.</button>
-                    <button class="option-btn" onclick="selectOpt(2, 'B', this)">B) Bir şiir dizesi, içten bir tefekkür veya huzur veren bir melodi.</button>
-                </div>
-            </div>
+    // Tıklama Olayları
+    buttons.forEach(button => {
+      button.addEventListener('click', function() {
+        const selectedMood = this.getAttribute('data-mood');
 
-            <button class="test-result-btn" onclick="showResult()">Analizimi Göster</button>
+        // 1. Tüm sayfaya yeni tema rengini uygula
+        document.documentElement.setAttribute('data-theme', selectedMood);
 
-            <div class="result-box" id="test-result">
-                <h3 style="margin-top:0; color:var(--primary-accent)">Zihin & Ruh İzdüşümün:</h3>
-                <p id="result-text"></p>
-            </div>
-        </div>
+        // 2. Butonların aktiflik durumunu güncelle
+        buttons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
 
-        <!-- Köşe Yazıları Listesi -->
-        <section class="articles-section">
-            <h2 class="articles-section-title">Yazarın Kaleminden / Köşe Yazıları</h2>
+        // 3. İçerik kartını hazırla ve yumuşak geçişle göster
+        const content = moodContents[selectedMood];
+        if (content) {
+          quoteText.textContent = content.quote;
+          sourceText.textContent = content.source;
 
-            <article class="article-card">
-                <h3>Dengeyi Ararken: Mantık ve Duygunun Kesişim Noktası</h3>
-                <div class="article-meta">Eylül 2026 • 3 dk okuma süresi • Deneme</div>
-                <p>Hayat, bazen bir geometrik denklemin netliğinde, bazen de bir şiir mısrasının belirsizliğinde akar. Zihnimiz ölçmek, tartmak ve bir mantık oturtmak isterken; ruhumuz sadece hissetmenin peşindedir...</p>
-                <button class="read-more-btn">Devamını Oku</button>
-            </article>
-
-            <article class="article-card">
-                <h3>Sessizliğin Geometrisi: Durmanın ve Düşünmenin Gücü</h3>
-                <div class="article-meta">Ağustos 2026 • 4 dk okuma süresi • Tefekkür</div>
-                <p>Günün koşturmacasında en çok unuttuğumuz şey durmaktır. Oysa bir pergelin sabit ayağı gibi, hayatın karmaşasında savrulmamak için kendi merkezimizde sabit kalabilmeyi öğrenmeliyiz...</p>
-                <button class="read-more-btn">Devamını Oku</button>
-            </article>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>© İzdüşüm Dergisi — Ruhunu ve Zihnini Dinlendiren Dijital Sığınak</p>
-    </footer>
-
-    <script>
-        const contents = {
-            durgun: {
-                hikmet: { text: '"Haberiniz olsun ki, kalpler ancak Allah\'ı anmakla huzur bulur."', sub: '— Ra\'d Suresi, 28' },
-                satir: { text: '"Sakinlik, ruhun kendi derinliklerinde açan en zarif çiçektir."', sub: '— İçsel Denemeler' },
-                kivilcim: { text: 'Doğadaki kusursuz orantı: Altın oran, hem bir ayçiçeğinin tanelerinde hem de galaksilerin sarmal yapısında aynı matematiksel dengede ilerler.', sub: '— Matematik & Doğa' }
-            },
-            yorgun: {
-                hikmet: { text: '"Şüphesiz her güçlükle beraber bir kolaylık vardır."', sub: '— İnşirah Suresi, 5' },
-                satir: { text: '"Dinlenmek de yolun bir parçasıdır. Durmak, vazgeçmek anlamına gelmez; sadece bir sonraki adıma hazırlanmaktır."', sub: '— Derkenar Notları' },
-                kivilcim: { text: 'Gece en karanlık andayken, gökyüzündeki yıldızların parlaklığı matematiksel olarak en belirgin seviyeye ulaşır.', sub: '— Astronomik Not' }
-            },
-            merakli: {
-                hikmet: { text: '"De ki: Hiç bilenlerle bilmeyenler bir olur mu?"', sub: '— Zümer Suresi, 9' },
-                satir: { text: '"Kitaplar, zihnin hiç gitmediği coğrafyalara açılan kapılardır."', sub: '— Okuma Günlükleri' },
-                kivilcim: { text: 'Fibonacci dizisinde her sayı kendinden önceki iki sayının toplamıdır. Zihin de tıpkı bu dizi gibi geçmişteki birikimleriyle büyür.', sub: '— Sayılar ve Mantık' }
-            },
-            motive: {
-                hikmet: { text: '"İnsan için ancak çalıştığının karşılığı vardır."', sub: '— Necm Suresi, 39' },
-                satir: { text: '"Gelecek, bugün inşa ettiğin küçük ama kararlı adımların toplamıdır."', sub: '— Zamanın İzinde' },
-                kivilcim: { text: 'İki nokta arasındaki en kısa yol doğru bir çizgidir. Odaklandığın hedefte net olmak, yolu her zaman kısaltır.', sub: '— Geometrik İlham' }
-            }
-        };
-
-        function changeContent(mood, btn) {
-            document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const selected = contents[mood];
-            document.getElementById('text-hikmet').innerText = selected.hikmet.text;
-            document.getElementById('sub-hikmet').innerText = selected.hikmet.sub;
-            document.getElementById('text-satir').innerText = selected.satir.text;
-            document.getElementById('sub-satir').innerText = selected.satir.sub;
-            document.getElementById('text-kivilcim').innerText = selected.kivilcim.text;
-            document.getElementById('sub-kivilcim').innerText = selected.kivilcim.sub;
+          // Placeholder'ı gizle, ana içerik kartını görünür yap ve animasyonu tetikle
+          placeholderCard.classList.add('hidden');
+          contentCard.classList.remove('hidden');
+          
+          // Animasyonu yenilemek için sınıfı sıfırlayıp tekrar ekliyoruz
+          contentCard.classList.remove('fade-in');
+          void contentCard.offsetWidth; // Reflow tetikleme
+          contentCard.classList.add('fade-in');
         }
-
-        let answers = {};
-        function selectOpt(q, val, btn) {
-            answers[q] = val;
-            let parent = btn.parentElement;
-            parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-        }
-
-        function showResult() {
-            let resBox = document.getElementById('test-result');
-            let resText = document.getElementById('result-text');
-            if(!answers[1] || !answers[2]) { alert("Lütfen tüm soruları yanıtlayın."); return; }
-            if(answers[1] === 'A' && answers[2] === 'A') {
-                resText.innerText = "Zihnin şu an tam bir 'Mimar Mantığı' ile çalışıyor. Düzen, netlik ve bilgi arayışındasın. Bugün öğrenmek istediğin yeni bir konuya odaklanmak sana çok iyi gelecek.";
-            } else if(answers[1] === 'B' && answers[2] === 'B') {
-                resText.innerText = "Ruhun şu an 'Sessiz Bir Sığınak' arıyor. İçsel bir tefekkür, güzel bir şiir veya sakin bir kitap kesiti zihnini tazelemek için tam da ihtiyacın olan şey.";
-            } else {
-                resText.innerText = "Sende tam bir 'Denge ve Ahenk' durumu var! Hem mantığın getirdiği netliği seviyorsun hem de ruhunu besleyen edebi dokunuşları.";
-            }
-            resBox.style.display = "block";
-        }
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
