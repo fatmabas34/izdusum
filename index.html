@@ -192,7 +192,7 @@
        İÇERİK KARTLARI VE MESAJA ÖZEL ALAN
        ========================================== */
     .display-area {
-      min-height: 200px;
+      min-height: 250px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -205,21 +205,40 @@
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
       width: 100%;
+      text-align: left;
       transition: background-color 0.6s ease, border-color 0.6s ease;
     }
 
     .placeholder-card {
+      text-align: center;
       font-style: italic;
       opacity: 0.75;
       font-size: 1.05rem;
       line-height: 1.6;
     }
 
+    .content-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .content-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.6;
+      margin-bottom: 0.5rem;
+    }
+
     .quote-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem;
       line-height: 1.5;
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.8rem;
       font-weight: 400;
     }
 
@@ -229,6 +248,28 @@
       letter-spacing: 1px;
       opacity: 0.7;
       text-transform: uppercase;
+    }
+
+    .body-text {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .highlight-box {
+      font-style: italic;
+      padding: 12px 16px;
+      background-color: var(--btn-bg);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .divider {
+      border: 0;
+      height: 1px;
+      background-color: var(--border-color);
+      margin: 1.5rem 0;
+      opacity: 0.5;
     }
 
     .hidden {
@@ -283,15 +324,32 @@
 
       <!-- Gösterim Alanı -->
       <div class="display-area">
-        <!-- 1. Seçim Yapılmadan Önce Görünen Başlangıç Kartı -->
+        <!-- 1. Başlangıç Kartı -->
         <div id="placeholder-card" class="card placeholder-card">
-          <p>Bugün kalbinde ve zihninde ne taşıyorsun?<br>Sana özel tefekkür ve teselli yazısını görmek için yukarıdan bir ruh hali seç.</p>
+          <p>Bugün kalbinde ve zihninde ne taşıyorsun?<br>Sana özel tefekkür, ayet ve içsel soruyu görmek için yukarıdan bir ruh hali seç.</p>
         </div>
 
-        <!-- 2. Seçim Yapıldıktan Sonra Açılan Ayet Kartı -->
+        <!-- 2. İçerik Kartı -->
         <div id="content-card" class="card hidden">
-          <p id="quote-text" class="quote-text"></p>
-          <span id="source-text" class="source-text"></span>
+          <!-- Ayet Bölümü -->
+          <div class="content-section">
+            <p id="quote-text" class="quote-text"></p>
+            <span id="source-text" class="source-text"></span>
+          </div>
+          
+          <hr class="divider">
+
+          <!-- Tefekkür Bölümü -->
+          <div class="content-section">
+            <span class="section-label">Günün Tefekkürü</span>
+            <p id="reflection-text" class="body-text"></p>
+          </div>
+
+          <!-- Yönlendirici Soru Bölümü -->
+          <div class="content-section">
+            <span class="section-label">İçsel Soru / Öneri</span>
+            <p id="question-text" class="body-text highlight-box"></p>
+          </div>
         </div>
       </div>
     </main>
@@ -299,36 +357,50 @@
 
   <script>
     // ==========================================
-    // RUH HALLERİNE ÖZEL AYET VE İÇERİK VERİSİ
+    // RUH HALLERİNE ÖZEL İÇERİK VERİ TABANI
     // ==========================================
     const moodContents = {
       sakin: {
         quote: "“Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.”",
-        source: "Râd Suresi, 28. Ayet"
+        source: "Râd Suresi, 28. Ayet",
+        reflection: "Zihnin durgun bir su gibi olduğunda, etrafındaki güzellikleri yansıtması kolaylaşır. Bugün hızlanmak zorunda değilsin.",
+        question: "Şu an etrafında duran ve fark etmediğin 3 ses veya detay nedir?"
       },
       yorgun: {
-        quote: "“Şüphesiz her güçlükle beraber bir kolaylık vardır. Gerçekten, her güçlükle beraber bir kolaylık vardır.”",
-        source: "İnşirah Suresi, 5-6. Ayet"
+        quote: "“Şüphesiz her güçlükle beraber bir kolaylık vardır.”",
+        source: "İnşirah Suresi, 5. Ayet",
+        reflection: "Yorulmak, yanlış yolda olduğun anlamına gelmez; sadece insan olduğunu ve sınırlara sahip olduğunu hatırlatır. Bugün sadece dur ve nefes al.",
+        question: "Omuzlarındaki hangi yükü bugünlük kenara bırakabilirsin?"
       },
       uzgun: {
         quote: "“Gevşemeyin, üzülmeyin; eğer inanıyorsanız üstün olan sizsiniz.”",
-        source: "Âl-i İmrân Suresi, 139. Ayet"
+        source: "Âl-i İmrân Suresi, 139. Ayet",
+        reflection: "Hüzün, kalbin derinleşme çabasıdır. Duygunu bastırmak yerine ona yer aç; geçmesine izin verilen her duygu yerini huzura bırakır.",
+        question: "Kendine şu an şefkatli bir dost gibi baksaydın ona ne söylerdin?"
       },
       kaygili: {
         quote: "“Allah bana yeter. O'ndan başka ilâh yoktur. Ben yalnızca O'na tevekkül ettim.”",
-        source: "Tevbe Suresi, 129. Ayet"
+        source: "Tevbe Suresi, 129. Ayet",
+        reflection: "Kaygı, henüz gerçekleşmemiş bir geleceği bugünden sırtlanma çabasıdır. Kontrol edemediğin şeyleri serbest bırak.",
+        question: "Şu an tam olarak güvende olduğun bu ana odaklanabilir misin?"
       },
       karmasik: {
-        quote: "“Olur ki bir şeyden hoşlanmazsınız ama o sizin için hayırlıdır; olur ki bir şeyi de seversiniz ama o sizin için şerdir. Allah bilir, siz bilmezsiniz.”",
-        source: "Bakara Suresi, 216. Ayet"
+        quote: "“Olur ki bir şeyden hoşlanmazsınız ama o sizin için hayırlıdır; Allah bilir, siz bilmezsiniz.”",
+        source: "Bakara Suresi, 216. Ayet",
+        reflection: "Net olmamak da sürecin bir parçası. Her şeyi hemen çözmek zorunda değilsin; bazen sisin dağılmasını beklemek en doğrusudur.",
+        question: "Kafanı karıştıran şeyleri bir kâğıda döküp dışarıdan bakmayı denedin mi?"
       },
       merakli: {
-        quote: "“Göklerin ve yerin yaratılışında, gece ile gündüzün birbiri ardınca gelişinde akıl sahipleri için ibretler vardır.”",
-        source: "Âl-i İmrân Suresi, 190. Ayet"
+        quote: "“Göklerin ve yerin yaratılışında akıl sahipleri için ibretler vardır.”",
+        source: "Âl-i İmrân Suresi, 190. Ayet",
+        reflection: "Soru sormak, ruhun keşif yolculuğudur. Öğrenme arzusu zihni taze tutar ve bakış açını genişletir.",
+        question: "Bugün daha önce hiç dikkat etmediğin neyi incelemek istersin?"
       },
       minnettar: {
         quote: "“Eğer şükrederseniz, elbette size olan nimetlerimi artırırım.”",
-        source: "İbrâhîm Suresi, 7. Ayet"
+        source: "İbrâhîm Suresi, 7. Ayet",
+        reflection: "Şükür, sahip olunan küçük detaylardaki büyük zenginliği görebilme sanatıdır. Farkedilen her nimet çoğalır.",
+        question: "Bugün varlığı için sessizce teşekkür etmek istediğin şey nedir?"
       }
     };
 
@@ -338,6 +410,8 @@
     const contentCard = document.getElementById('content-card');
     const quoteText = document.getElementById('quote-text');
     const sourceText = document.getElementById('source-text');
+    const reflectionText = document.getElementById('reflection-text');
+    const questionText = document.getElementById('question-text');
 
     // Tıklama Olayları
     buttons.forEach(button => {
@@ -351,19 +425,21 @@
         buttons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
 
-        // 3. İçerik kartını hazırla ve yumuşak geçişle göster
+        // 3. İçerik kartını doldur ve animasyonla göster
         const content = moodContents[selectedMood];
         if (content) {
           quoteText.textContent = content.quote;
           sourceText.textContent = content.source;
+          reflectionText.textContent = content.reflection;
+          questionText.textContent = content.question;
 
-          // Placeholder'ı gizle, ana içerik kartını görünür yap ve animasyonu tetikle
+          // Placeholder'ı gizle, içerik kartını aç
           placeholderCard.classList.add('hidden');
           contentCard.classList.remove('hidden');
           
-          // Animasyonu yenilemek için sınıfı sıfırlayıp tekrar ekliyoruz
+          // Animasyonu yenile
           contentCard.classList.remove('fade-in');
-          void contentCard.offsetWidth; // Reflow tetikleme
+          void contentCard.offsetWidth; // Reflow
           contentCard.classList.add('fade-in');
         }
       });
