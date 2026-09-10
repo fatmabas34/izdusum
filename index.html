@@ -10,7 +10,7 @@
   
   <style>
     /* ==========================================
-       TEMA VE RENK PALETLERİ
+       TEMA VE RENK PALETLERİ (GÜNCELLENDİ)
        ========================================== */
     :root {
       --bg-color: #f4f0f8;
@@ -22,33 +22,81 @@
       --btn-text: #4a3e56;
     }
 
+    /* Sakin: Yumuşak toprak ve ahşap tonları (Sıcak bej/ahşap) */
     [data-theme="sakin"] {
-      --bg-color: #eef2f7; --card-bg: #ffffff; --text-color: #37474f;
-      --accent-color: #5c7c99; --border-color: #d3dfeb; --btn-bg: #e1e8f0; --btn-text: #37474f;
+      --bg-color: #f3ece4; 
+      --card-bg: #fcf9f5; 
+      --text-color: #4a3c31;
+      --accent-color: #a07855; 
+      --border-color: #e6d7c3; 
+      --btn-bg: #eae0d2; 
+      --btn-text: #4a3c31;
     }
+
+    /* Yorgun: Canlı Yeşil / Mercan dokunuşlu sakinleştirici pastel */
     [data-theme="yorgun"] {
-      --bg-color: #ece8f2; --card-bg: #f8f6fb; --text-color: #3f3947;
-      --accent-color: #7b699a; --border-color: #d8cfe5; --btn-bg: #dfd8ea; --btn-text: #3f3947;
+      --bg-color: #edf4ef; 
+      --card-bg: #ffffff; 
+      --text-color: #2d4030;
+      --accent-color: #528265; 
+      --border-color: #cee0d4; 
+      --btn-bg: #dbebd0; 
+      --btn-text: #2d4030;
     }
-    [data-theme="karmasik"] {
-      --bg-color: #2a2438; --card-bg: #352f44; --text-color: #e2d9f3;
-      --accent-color: #a27b5c; --border-color: #5c5470; --btn-bg: #473e5d; --btn-text: #e2d9f3;
-    }
-    [data-theme="merakli"] {
-      --bg-color: #faf0f5; --card-bg: #ffffff; --text-color: #4a2e35;
-      --accent-color: #c05c83; --border-color: #f3d2e0; --btn-bg: #f5e1eb; --btn-text: #4a2e35;
-    }
+
+    /* Üzgün: Mercan rengi */
     [data-theme="uzgun"] {
-      --bg-color: #232230; --card-bg: #2d2b3d; --text-color: #e0dbe8;
-      --accent-color: #9d8abf; --border-color: #403d54; --btn-bg: #3a374c; --btn-text: #e0dbe8;
+      --bg-color: #fdf0ed; 
+      --card-bg: #ffffff; 
+      --text-color: #4a2e2b;
+      --accent-color: #e07a5f; 
+      --border-color: #f7d2c9; 
+      --btn-bg: #fae2dc; 
+      --btn-text: #4a2e2b;
     }
+
+    /* Kaygılı: Turkuaz veya açık mavi */
     [data-theme="kaygili"] {
-      --bg-color: #faf6f0; --card-bg: #ffffff; --text-color: #4a4033;
-      --accent-color: #c49a45; --border-color: #f0e4d3; --btn-bg: #f5eae0; --btn-text: #4a4033;
+      --bg-color: #eaf4f8; 
+      --card-bg: #ffffff; 
+      --text-color: #233e4a;
+      --accent-color: #3a9ab2; 
+      --border-color: #c8e2eb; 
+      --btn-bg: #d9eef5; 
+      --btn-text: #233e4a;
     }
+
+    /* Karmaşık: Soft adaçayı yeşili */
+    [data-theme="karmasik"] {
+      --bg-color: #e9efe9; 
+      --card-bg: #f7faf7; 
+      --text-color: #334233;
+      --accent-color: #6b8e6b; 
+      --border-color: #cfdccf; 
+      --btn-bg: #dce7dc; 
+      --btn-text: #334233;
+    }
+
+    /* Meraklı: Gece mavisi (Koyu Tema) */
+    [data-theme="merakli"] {
+      --bg-color: #0f172a; 
+      --card-bg: #1e293b; 
+      --text-color: #e2e8f0;
+      --accent-color: #38bdf8; 
+      --border-color: #334155; 
+      --btn-bg: #1e293b; 
+      --btn-text: #e2e8f0;
+    }
+
+    /* Minnettar: Gül kurusu */
     [data-theme="minnettar"] {
-      --bg-color: #f0f4f1; --card-bg: #ffffff; --text-color: #2e3d34;
-      --accent-color: #6b8e72; --border-color: #d6e2d8; --btn-bg: #e1ebd3; --btn-text: #2e3d34;
+      --bg-color: #f8ecee; 
+      --card-bg: #ffffff; 
+      --text-color: #4a2c33;
+      --accent-color: #c07a8b; 
+      --border-color: #eed0d6; 
+      --btn-bg: #f3de e3; 
+      --btn-text: #4a2c33;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -216,7 +264,7 @@
     /* MODAL (DETAY PENCERESİ) */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
+      background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center;
       z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
     .modal-overlay.active { opacity: 1; pointer-events: auto; }
@@ -303,9 +351,7 @@
         </div>
       </div>
 
-      <!-- ==========================================
-           KARŞILAMA / SIĞINAK BALONCUĞU
-           ========================================== -->
+      <!-- KARŞILAMA / SIĞINAK BALONCUĞU -->
       <section class="welcome-bubble">
         <h3 class="welcome-bubble-title">Ruhuna Küçük Bir Mola: Burası Senin Sığınağın</h3>
         <p class="welcome-bubble-text">
@@ -316,40 +362,31 @@
         </p>
       </section>
 
-      <!-- ==========================================
-           YAZARIN KALEMİNDEN (KARTLAR BÖLÜMÜ)
-           ========================================== -->
+      <!-- YAZARIN KALEMİNDEN BÖLÜMÜ -->
       <section class="author-section">
         <h2 class="author-section-title">Yazarın Kaleminden</h2>
         
         <div class="author-articles-grid">
-          
-          <!-- YAZI 1 -->
           <div class="article-card">
             <h3 class="article-title" onclick="openModal('Kur\'an Dini, Matematik Dili', 'Yazarın Kaleminden', article1Text)">Kur'an Dini, Matematik Dili</h3>
             <p class="article-excerpt">İlk nefesini "Oku" emriyle alan bir dinin mensubuyuz biz; akıl da evren de önümüzde keşfedilmeyi bekleyen açık bir kitap aslında...</p>
             <button class="read-more-btn" onclick="openModal('Kur\'an Dini, Matematik Dili', 'Yazarın Kaleminden', article1Text)">Devamını Gör</button>
           </div>
 
-          <!-- YAZI 2 -->
           <div class="article-card">
             <h3 class="article-title" onclick="openModal('Renklerin Nöropsikolojisi ve Duygusal Denge', 'Yazarın Kaleminden', article2Text)">Renklerin Nöropsikolojisi ve Duygusal Denge</h3>
             <p class="article-excerpt">Görsel algı, yalnızca dış dünyayı tanımlamamızı sağlamaz; doğrudan beynimizin duygu ve hormon merkezlerini uyarır...</p>
             <button class="read-more-btn" onclick="openModal('Renklerin Nöropsikolojisi ve Duygusal Denge', 'Yazarın Kaleminden', article2Text)">Devamını Gör</button>
           </div>
-
         </div>
       </section>
 
-      <!-- ==========================================
-           İZDÜŞÜM KİTAPLIĞI BÖLÜMÜ
-           ========================================== -->
+      <!-- İZDÜŞÜM KİTAPLIĞI BÖLÜMÜ -->
       <section class="bookshelf-section">
         <h2 class="bookshelf-title">İzdüşüm Kitaplığı</h2>
         <p class="bookshelf-sub">Zihnime dokunan, iz bırakan ve ruhuma rehberlik eden okumalar.</p>
 
         <div class="books-grid">
-          <!-- Kitap 1 -->
           <div class="book-card">
             <img src="https://via.placeholder.com/110x165?text=Siddhartha" alt="Siddhartha" class="book-cover">
             <h3 class="book-title">Siddhartha</h3>
@@ -358,7 +395,6 @@
             <button class="read-more-btn" onclick="openModal('Siddhartha', 'Hermann Hesse', 'Siddhartha benim için sadece bir doğu felsefesi anlatısı değil; insanın kendi hakikatini ararken geçtiği tüm yanılgıların meşruluğudur. Kitap boyunca nehrin sesini dinlemek, hayattaki akışın ve kabullenişin matematiksel sadeliğini hissettiriyor.')">Devamını Gör</button>
           </div>
 
-          <!-- Kitap 2 -->
           <div class="book-card">
             <img src="https://via.placeholder.com/110x165?text=Kendime+D%C3%BC%C5%9F%C3%BCnceler" alt="Kendime Düşünceler" class="book-cover">
             <h3 class="book-title">Kendime Düşünceler</h3>
@@ -367,7 +403,6 @@
             <button class="read-more-btn" onclick="openModal('Kendime Düşünceler', 'Marcus Aurelius', 'Bir Roma İmparatoru’nun gece çadırında kendi kendine kaldığı anlarda yazdığı bu notlar, kaygı anlarında en büyük sığınağımdır. Kontrol edebildiğimiz alanlar ile edemediklerimiz arasındaki net çizgiyi çizmesi bakımından muazzam bir zihin disiplini sağlar.')">Devamını Gör</button>
           </div>
 
-          <!-- Kitap 3 -->
           <div class="book-card">
             <img src="https://via.placeholder.com/110x165?text=Semerkant" alt="Semerkant" class="book-cover">
             <h3 class="book-title">Semerkant</h3>
@@ -381,7 +416,7 @@
     </main>
   </div>
 
-  <!-- GENEL AÇILIR DETAY PENCERESİ (MODAL) -->
+  <!-- AÇILIR DETAY PENCERESİ (MODAL) -->
   <div id="general-modal" class="modal-overlay" onclick="closeModal(event)">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModalDirect()">&times;</span>
@@ -393,7 +428,6 @@
   </div>
 
   <script>
-    // Yazarın Kaleminden Yazıları
     const article1Text = `
       İlk nefesini "Oku" emriyle alan bir dinin mensubuyuz biz; akıl da evren de önümüzde keşfedilmeyi bekleyen açık bir kitap aslında. Ama bu okuma işi öyle sadece harfleri dizip geçmek değil. Evrenin dokusuna, atomun çekirdeğine, hatta Kutsal Kitap’ın kendi yapısına işlenmiş o muazzam matematiği fark etmek meselesi.<br><br>
       Baktığında Kur’an, sadece kelimelerden ibaret bir metin değil; kendi içinde inanılmaz bir sayısal denge taşıyor. Birbiriyle zıt ya da ilişkili kavramların tekrarlanma sayılarına bakınca insan gerçekten hayret ediyor, tesadüf deyip geçemiyorsun:<br><br>
@@ -447,7 +481,6 @@
       </ul>
     `;
 
-    // Ruh Hali İçerikleri
     const moodContents = {
       sakin: {
         quote: "“Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.”", source: "Râd Suresi, 28. Ayet",
