@@ -10,7 +10,7 @@
   
   <style>
     /* ==========================================
-       TEMA VE RENK PALETLERİ (CSS Variables)
+       TEMA VE RENK PALETLERİ
        ========================================== */
     :root {
       --bg-color: #f4f0f8;
@@ -23,83 +23,35 @@
     }
 
     [data-theme="sakin"] {
-      --bg-color: #eef2f7;
-      --card-bg: #ffffff;
-      --text-color: #37474f;
-      --accent-color: #5c7c99;
-      --border-color: #d3dfeb;
-      --btn-bg: #e1e8f0;
-      --btn-text: #37474f;
+      --bg-color: #eef2f7; --card-bg: #ffffff; --text-color: #37474f;
+      --accent-color: #5c7c99; --border-color: #d3dfeb; --btn-bg: #e1e8f0; --btn-text: #37474f;
     }
-
     [data-theme="yorgun"] {
-      --bg-color: #ece8f2;
-      --card-bg: #f8f6fb;
-      --text-color: #3f3947;
-      --accent-color: #7b699a;
-      --border-color: #d8cfe5;
-      --btn-bg: #dfd8ea;
-      --btn-text: #3f3947;
+      --bg-color: #ece8f2; --card-bg: #f8f6fb; --text-color: #3f3947;
+      --accent-color: #7b699a; --border-color: #d8cfe5; --btn-bg: #dfd8ea; --btn-text: #3f3947;
     }
-
     [data-theme="karmasik"] {
-      --bg-color: #2a2438;
-      --card-bg: #352f44;
-      --text-color: #e2d9f3;
-      --accent-color: #a27b5c;
-      --border-color: #5c5470;
-      --btn-bg: #473e5d;
-      --btn-text: #e2d9f3;
+      --bg-color: #2a2438; --card-bg: #352f44; --text-color: #e2d9f3;
+      --accent-color: #a27b5c; --border-color: #5c5470; --btn-bg: #473e5d; --btn-text: #e2d9f3;
     }
-
     [data-theme="merakli"] {
-      --bg-color: #faf0f5;
-      --card-bg: #ffffff;
-      --text-color: #4a2e35;
-      --accent-color: #c05c83;
-      --border-color: #f3d2e0;
-      --btn-bg: #f5e1eb;
-      --btn-text: #4a2e35;
+      --bg-color: #faf0f5; --card-bg: #ffffff; --text-color: #4a2e35;
+      --accent-color: #c05c83; --border-color: #f3d2e0; --btn-bg: #f5e1eb; --btn-text: #4a2e35;
     }
-
     [data-theme="uzgun"] {
-      --bg-color: #232230;
-      --card-bg: #2d2b3d;
-      --text-color: #e0dbe8;
-      --accent-color: #9d8abf;
-      --border-color: #403d54;
-      --btn-bg: #3a374c;
-      --btn-text: #e0dbe8;
+      --bg-color: #232230; --card-bg: #2d2b3d; --text-color: #e0dbe8;
+      --accent-color: #9d8abf; --border-color: #403d54; --btn-bg: #3a374c; --btn-text: #e0dbe8;
     }
-
     [data-theme="kaygili"] {
-      --bg-color: #faf6f0;
-      --card-bg: #ffffff;
-      --text-color: #4a4033;
-      --accent-color: #c49a45;
-      --border-color: #f0e4d3;
-      --btn-bg: #f5eae0;
-      --btn-text: #4a4033;
+      --bg-color: #faf6f0; --card-bg: #ffffff; --text-color: #4a4033;
+      --accent-color: #c49a45; --border-color: #f0e4d3; --btn-bg: #f5eae0; --btn-text: #4a4033;
     }
-
     [data-theme="minnettar"] {
-      --bg-color: #f0f4f1;
-      --card-bg: #ffffff;
-      --text-color: #2e3d34;
-      --accent-color: #6b8e72;
-      --border-color: #d6e2d8;
-      --btn-bg: #e1ebd3;
-      --btn-text: #2e3d34;
+      --bg-color: #f0f4f1; --card-bg: #ffffff; --text-color: #2e3d34;
+      --accent-color: #6b8e72; --border-color: #d6e2d8; --btn-bg: #e1ebd3; --btn-text: #2e3d34;
     }
 
-    /* ==========================================
-       GENEL SAYFA DÜZENİ
-       ========================================== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -107,200 +59,137 @@
       color: var(--text-color);
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
-      padding: 30px 20px;
+      padding: 40px 20px;
       transition: background-color 0.6s ease, color 0.6s ease;
     }
 
-    .container {
-      max-width: 650px;
-      width: 100%;
-      text-align: center;
-    }
-
-    header {
-      margin-bottom: 2.5rem;
-    }
+    .container { max-width: 750px; width: 100%; text-align: center; }
+    header { margin-bottom: 2.5rem; }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
+      font-size: 3rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 0.5rem;
     }
 
-    .subtitle {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      font-weight: 300;
-      letter-spacing: 1px;
-    }
+    .subtitle { font-size: 0.95rem; opacity: 0.8; font-weight: 300; letter-spacing: 1px; }
 
-    /* ==========================================
-       RUH HALİ BUTONLARI
-       ========================================== */
-    .mood-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 1rem;
-      opacity: 0.7;
-    }
-
-    .mood-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 2.5rem;
-    }
-
+    /* RUH HALİ BUTONLARI */
+    .mood-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.7; }
+    .mood-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 2.5rem; }
     .mood-btn {
-      background-color: var(--btn-bg);
-      color: var(--btn-text);
-      border: 1px solid var(--border-color);
-      padding: 10px 18px;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Inter', sans-serif;
+      background-color: var(--btn-bg); color: var(--btn-text); border: 1px solid var(--border-color);
+      padding: 10px 18px; border-radius: 25px; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;
     }
-
-    .mood-btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent-color);
-    }
-
+    .mood-btn:hover { transform: translateY(-2px); border-color: var(--accent-color); }
     .mood-btn.active {
-      background-color: var(--accent-color);
-      color: #ffffff;
-      border-color: var(--accent-color);
+      background-color: var(--accent-color); color: #ffffff; border-color: var(--accent-color);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* ==========================================
-       İÇERİK KARTLARI
-       ========================================== */
-    .display-area {
-      min-height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
+    /* İÇERİK KARTLARI */
     .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 2.5rem 2rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-      width: 100%;
-      text-align: left;
-      transition: background-color 0.6s ease, border-color 0.6s ease;
+      background-color: var(--card-bg); border: 1px solid var(--border-color);
+      padding: 2.5rem 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      width: 100%; text-align: left; transition: background-color 0.6s ease, border-color 0.6s ease;
     }
-
-    .placeholder-card {
-      text-align: center;
-      font-style: italic;
-      opacity: 0.75;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    .content-section {
-      margin-bottom: 1.2rem;
-    }
-
-    .content-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .section-label {
-      display: block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      opacity: 0.6;
-      margin-bottom: 0.4rem;
-    }
-
-    .quote-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      line-height: 1.5;
-      margin-bottom: 0.4rem;
-      font-weight: 400;
-    }
-
-    .source-text {
-      display: block;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      opacity: 0.7;
-      text-transform: uppercase;
-    }
-
-    .book-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-style: italic;
-      line-height: 1.5;
-      margin-bottom: 0.3rem;
-    }
-
-    .body-text {
-      font-size: 0.98rem;
-      line-height: 1.65;
-      opacity: 0.9;
-    }
-
-    /* Yazar Köşesi Özel Stili */
-    .author-box {
-      background-color: var(--btn-bg);
-      padding: 1.2rem 1.5rem;
-      border-radius: 12px;
-      border-left: 3px solid var(--accent-color);
-    }
-
-    .author-box .body-text {
-      font-style: italic;
-    }
-
-    .divider {
-      border: 0;
-      height: 1px;
-      background-color: var(--border-color);
-      margin: 1.2rem 0;
-      opacity: 0.5;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .fade-in {
-      animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    .placeholder-card { text-align: center; font-style: italic; opacity: 0.75; font-size: 1.05rem; line-height: 1.6; }
+    .content-section { margin-bottom: 1.2rem; }
+    .section-label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.6; margin-bottom: 0.4rem; }
+    .quote-text { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; line-height: 1.5; margin-bottom: 0.4rem; }
+    .source-text { display: block; font-size: 0.85rem; letter-spacing: 1px; opacity: 0.7; text-transform: uppercase; }
+    .book-text { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; line-height: 1.5; margin-bottom: 0.3rem; }
+    .body-text { font-size: 0.98rem; line-height: 1.65; opacity: 0.9; }
+    .divider { border: 0; height: 1px; background-color: var(--border-color); margin: 1.2rem 0; opacity: 0.5; }
+    .hidden { display: none; }
+    .fade-in { animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+
+    /* YAZARIN KALEMİNDEN SABİT BÖLÜM */
+    .standalone-author-box {
+      margin-top: 2.5rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      transition: background-color 0.6s ease, border-color 0.6s ease;
+    }
+    .standalone-author-box .body-text {
+      line-height: 1.75;
+    }
+
+    /* KİTAPLIK BÖLÜMÜ STİLLERİ */
+    .bookshelf-section { margin-top: 4rem; text-align: left; }
+    .bookshelf-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      margin-bottom: 0.5rem; text-align: center;
+    }
+    .bookshelf-sub { text-align: center; font-size: 0.9rem; opacity: 0.7; margin-bottom: 2rem; }
+    
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .book-card {
+      background-color: var(--card-bg); border: 1px solid var(--border-color);
+      border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column;
+      align-items: center; text-align: center; transition: transform 0.3s ease;
+    }
+    .book-card:hover { transform: translateY(-5px); }
+
+    .book-cover {
+      width: 110px; height: 165px; object-fit: cover; border-radius: 6px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15); margin-bottom: 1rem; background-color: #ddd;
+    }
+
+    .book-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .book-author { font-size: 0.8rem; opacity: 0.7; margin-bottom: 0.8rem; text-transform: uppercase; }
+    .book-feeling { font-size: 0.85rem; line-height: 1.4; opacity: 0.85; margin-bottom: 1rem; flex-grow: 1; }
+    
+    .read-more-btn {
+      background-color: var(--btn-bg); color: var(--btn-text); border: 1px solid var(--border-color);
+      padding: 6px 14px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s ease;
+    }
+    .read-more-btn:hover { background-color: var(--accent-color); color: #fff; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
+      z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    
+    .modal-content {
+      background-color: var(--card-bg); color: var(--text-color);
+      padding: 2rem; border-radius: 16px; max-width: 500px; width: 90%;
+      max-height: 80vh; overflow-y: auto; position: relative;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 1px solid var(--border-color);
+    }
+    .close-modal {
+      position: absolute; top: 15px; right: 20px; font-size: 1.5rem;
+      cursor: pointer; opacity: 0.6;
+    }
+    .close-modal:hover { opacity: 1; }
+    .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 0.3rem; }
+    .modal-author { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1rem; text-transform: uppercase; }
+    .modal-text { font-size: 0.95rem; line-height: 1.7; opacity: 0.9; }
 
     @media (max-width: 480px) {
       h1 { font-size: 2.3rem; }
       .quote-text { font-size: 1.3rem; }
-      .book-text { font-size: 1.15rem; }
       .card { padding: 1.8rem 1.2rem; }
+      .books-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -315,7 +204,6 @@
     <main>
       <p class="mood-title">Şu An Nasıl Hissediyorsun?</p>
       
-      <!-- Ruh Hali Seçim Butonları -->
       <div class="mood-buttons">
         <button class="mood-btn" data-mood="sakin">Sakin</button>
         <button class="mood-btn" data-mood="yorgun">Yorgun</button>
@@ -326,146 +214,162 @@
         <button class="mood-btn" data-mood="minnettar">Minnettar</button>
       </div>
 
-      <!-- Gösterim Alanı -->
       <div class="display-area">
-        <!-- 1. Başlangıç Kartı -->
         <div id="placeholder-card" class="card placeholder-card">
           <p>Bugün kalbinde ve zihninde ne taşıyorsun?<br>Sana özel içerikleri keşfetmek için yukarıdan bir ruh hali seç.</p>
         </div>
 
-        <!-- 2. İçerik Kartı -->
         <div id="content-card" class="card hidden">
-          <!-- Ayet Bölümü -->
           <div class="content-section">
             <span class="section-label">Ayet-i Kerime</span>
             <p id="quote-text" class="quote-text"></p>
             <span id="source-text" class="source-text"></span>
           </div>
-          
           <hr class="divider">
-
-          <!-- Kitap Kesiti Bölümü -->
           <div class="content-section">
             <span class="section-label">Kitaptan Bir İz</span>
             <p id="book-quote" class="book-text"></p>
             <span id="book-source" class="source-text"></span>
           </div>
-
           <hr class="divider">
-
-          <!-- Tefekkür Bölümü -->
           <div class="content-section">
             <span class="section-label">Günün Tefekkürü</span>
             <p id="reflection-text" class="body-text"></p>
           </div>
-
           <hr class="divider">
-
-          <!-- Duyguya Özel Dinamik Bölüm -->
           <div class="content-section">
             <span id="custom-label" class="section-label"></span>
             <p id="custom-text" class="body-text"></p>
           </div>
-
           <hr class="divider">
-
-          <!-- Matematiğin Felsefesi Bölümü -->
           <div class="content-section">
             <span class="section-label">Matematik ve Hayat</span>
             <p id="math-text" class="body-text"></p>
           </div>
-
-          <hr class="divider">
-
-          <!-- Yazarın Kaleminden -->
-          <div class="content-section author-box">
-            <span class="section-label">Yazarın Kaleminden</span>
-            <p id="author-text" class="body-text"></p>
-          </div>
         </div>
       </div>
+
+      <!-- ==========================================
+           YAZARIN KALEMİNDEN SABİT ALAN
+           ========================================== -->
+      <section class="standalone-author-box">
+        <span class="section-label">Yazarın Kaleminden</span>
+        <p class="body-text">
+          İlk nefesini "Oku" emriyle alan bir dinin mensubuyuz biz; akıl da evren de önümüzde keşfedilmeyi bekleyen açık bir kitap aslında. Ama bu okuma işi öyle sadece harfleri dizip geçmek değil. Evrenin dokusuna, atomun çekirdeğine, hatta Kutsal Kitap’ın kendi yapısına işlenmiş o muazzam matematiği fark etmek meselesi.<br><br>
+          Baktığında Kur’an, sadece kelimelerden ibaret bir metin değil; kendi içinde inanılmaz bir sayısal denge taşıyor. Birbiriyle zıt ya da ilişkili kavramların tekrarlanma sayılarına bakınca insan gerçekten hayret ediyor, tesadüf deyip geçemiyorsun:<br><br>
+          • <strong>Dünya ve Ahiret:</strong> İkisi de tam 115’er kez geçiyor.<br>
+          • <strong>Melek ve Şeytan:</strong> Biri iyiliğin, diğeri kötülüğün simgesi; ikisi de eşit şekilde 88’er defa anılıyor.<br>
+          • <strong>Gece ve Gündüz:</strong> Dengeleri bozulmasın diye sanki, ikisi de 57’şer kez tekrarlanıyor.<br>
+          • <strong>Deniz ve Kara:</strong> İşte burası beni çok etkiliyor; deniz kelimesi 32, kara kelimesi 13 kez geçiyor. Toplayınca 45 yapıyor. Oranladığında denizler %71.1, karalar %28.9 çıkıyor. Yani dünyamızdaki su ve kara alanlarının gerçek coğrafi oranının birebir aynısı!<br>
+          • <strong>Zaman Meselesi:</strong> Koskoca kitapta <em>Gün</em> kelimesinin tam 365 kez, <em>Ay</em> kelimesinin ise 12 kez geçmesi sence tesadüf olabilir mi?<br><br>
+          İşte benim İslam’ın bilime bakışında gördüğüm şey tam olarak bu. Kur’an, evrenin ve zamanın kodlarını harflerle önümüze koyuyor; bize düşen de aynı matematiği doğada, laboratuvarda, gökyüzünde okumak. "Oku" emri sadece kâğıttaki yazıyı değil, aslında bu evreni ayakta tutan o kusursuz denklemi çözme çağrısı.
+        </p>
+      </section>
+
+      <!-- ==========================================
+           İZDÜŞÜM KİTAPLIĞI BÖLÜMÜ
+           ========================================== -->
+      <section class="bookshelf-section">
+        <h2 class="bookshelf-title">İzdüşüm Kitaplığı</h2>
+        <p class="bookshelf-sub">Zihnime dokunan, iz bırakan ve ruhuma rehberlik eden okumalar.</p>
+
+        <div class="books-grid">
+          <!-- Kitap 1 -->
+          <div class="book-card">
+            <img src="https://via.placeholder.com/110x165?text=Siddhartha" alt="Siddhartha" class="book-cover">
+            <h3 class="book-title">Siddhartha</h3>
+            <span class="book-author">Hermann Hesse</span>
+            <p class="book-feeling">Arayışın, kendini bulmanın ve Nehir'in dingin bilgeliğinin hissi.</p>
+            <button class="read-more-btn" onclick="openModal('Siddhartha', 'Hermann Hesse', 'Siddhartha benim için sadece bir doğu felsefesi anlatısı değil; insanın kendi hakikatini ararken geçtiği tüm yanılgıların meşruluğudur. Kitap boyunca nehrin sesini dinlemek, hayattaki akışın ve kabullenişin matematiksel sadeliğini hissettiriyor.')">Devamını Gör</button>
+          </div>
+
+          <!-- Kitap 2 -->
+          <div class="book-card">
+            <img src="https://via.placeholder.com/110x165?text=Kendime+D%C3%BC%C5%9F%C3%BCnceler" alt="Kendime Düşünceler" class="book-cover">
+            <h3 class="book-title">Kendime Düşünceler</h3>
+            <span class="book-author">Marcus Aurelius</span>
+            <p class="book-feeling">Stoacı zihnin, fırtınalar ortasında kurduğu sarsılmaz içsel kale.</p>
+            <button class="read-more-btn" onclick="openModal('Kendime Düşünceler', 'Marcus Aurelius', 'Bir Roma İmparatoru’nun gece çadırında kendi kendine kaldığı anlarda yazdığı bu notlar, kaygı anlarında en büyük sığınağımdır. Kontrol edebildiğimiz alanlar ile edemediklerimiz arasındaki net çizgiyi çizmesi bakımından muazzam bir zihin disiplini sağlar.')">Devamını Gör</button>
+          </div>
+
+          <!-- Kitap 3 -->
+          <div class="book-card">
+            <img src="https://via.placeholder.com/110x165?text=Semerkant" alt="Semerkant" class="book-cover">
+            <h3 class="book-title">Semerkant</h3>
+            <span class="book-author">Amin Maalouf</span>
+            <p class="book-feeling">Doğunun estetiği, Ömer Hayyam’ın matematiği ve tarihin büyüleyici dokusu.</p>
+            <button class="read-more-btn" onclick="openModal('Semerkant', 'Amin Maalouf', 'Ömer Hayyam’ın rubaileri ve matematik dehası etrafında şekillenen bu eser, Doğu’nun felsefi derinliğini harika bir olay örgüsüyle sunuyor. Zamana ve yazgıya dair hissettirdiği duygu tarif edilemez.')">Devamını Gör</button>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
-  <script>
-    // Yazarın Köşe Yazısı
-    const yazarinYazisi = ".";
+  <!-- AÇILIR DETAY PENCERESİ (MODAL) -->
+  <div id="book-modal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModalDirect()">&times;</span>
+      <h3 id="modal-title" class="modal-title"></h3>
+      <p id="modal-author" class="modal-author"></p>
+      <hr class="divider">
+      <p id="modal-text" class="modal-text"></p>
+    </div>
+  </div>
 
-    // Ruh Hallerine Özel İçerik Veri Tabanı
+  <script>
     const moodContents = {
       sakin: {
-        quote: "“Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.”",
-        source: "Râd Suresi, 28. Ayet",
-        bookQuote: "“Ruhunun derinliklerindeki o sessiz yeri bul; oraya ne fırtınalar ulaşabilir ne de dünyanın gürültüsü.”",
-        bookSource: "Marcus Aurelius — Kendime Düşünceler",
+        quote: "“Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.”", source: "Râd Suresi, 28. Ayet",
+        bookQuote: "“Ruhunun derinliklerindeki o sessiz yeri bul; oraya ne fırtınalar ulaşabilir ne de dünyanın gürültüsü.”", bookSource: "Marcus Aurelius — Kendime Düşünceler",
         reflection: "Zihnin durgun bir su gibi olduğunda, etrafındaki güzellikleri yansıtması kolaylaşır. Bugün hızlanmak zorunda değilsin; sakince var olmanın tadını çıkar.",
-        customLabel: "Bugün İçin Küçük Bir Plan",
-        customText: "Zihnin berrak iken uzun zamandır ertelediğin bir kitabı açabilir ya da sessiz bir yürüyüşte sadece adımlarının sesini dinleyebilirsin.",
-        mathText: "Altın Oran (Phi = 1.618...): Doğadaki en dengeli estetik, çatışmadan değil, parçaların birbiriyle kusursuz oranından doğar. Sakinlik de zihnin kendi içsel oranını bulmasıdır."
+        customLabel: "Bugün İçin Küçük Bir Plan", customText: "Zihnin berrak iken uzun zamandır ertelediğin bir kitabı açabilir ya da sessiz bir yürüyüşte sadece adımlarının sesini dinleyebilirsin.",
+        mathText: "Altın Oran (Phi = 1.618...): Doğadaki en dengeli estetik, parçaların birbiriyle kusursuz oranından doğar. Sakinlik de zihnin kendi içsel oranını bulmasıdır."
       },
       yorgun: {
-        quote: "“Şüphesiz her güçlükle beraber bir kolaylık vardır.”",
-        source: "İnşirah Suresi, 5. Ayet",
-        bookQuote: "“Yorgunluğum, dünyayla kurduğum bağın ağırlığındandır. Bazen sadece durmak gerekir.”",
-        bookSource: "Fernando Pessoa — Huzursuzluğun Kitabı",
+        quote: "“Şüphesiz her güçlükle beraber bir kolaylık vardır.”", source: "İnşirah Suresi, 5. Ayet",
+        bookQuote: "“Yorgunluğum, dünyayla kurduğum bağın ağırlığındandır. Bazen sadece durmak gerekir.”", bookSource: "Fernando Pessoa — Huzursuzluğun Kitabı",
         reflection: "Yorulmak, yanlış yolda olduğun anlamına gelmez; sadece insan olduğunu ve sınırlara sahip olduğunu hatırlatır. Bugün kendine izin ver ve dinlen.",
-        customLabel: "Suçluluk Duymadan Durma İzni",
-        customText: "Dünya, sen birkaç saat hiçbir şey yapmasan da dönmeye devam edecek. Üretmediğin anlarda da değerli olduğunu unutma.",
-        mathText: "Sıfır (0) Kavramı: Yutan eleman gibi görünse de toplama işleminde etkisiz, konum belirlemede ise başlangıç noktasıdır (orjin). Bazen sıfırlanmak, yeniden başlamak için gereklidir."
+        customLabel: "Suçluluk Duymadan Durma İzni", customText: "Dünya, sen birkaç saat hiçbir şey yapmasan da dönmeye devam edecek. Üretmediğin anlarda da değerli olduğunu unutma.",
+        mathText: "Sıfır (0) Kavramı: Toplama işleminde etkisiz, konum belirlemede ise başlangıç noktasıdır (orjin). Bazen sıfırlanmak, yeniden başlamak için gereklidir."
       },
       uzgun: {
-        quote: "“Gevşemeyin, üzülmeyin; eğer inanıyorsanız üstün olan sizsiniz.”",
-        source: "Âl-i İmrân Suresi, 139. Ayet",
-        bookQuote: "“Gözyaşları, ruhun yıkanma biçimidir. Bir fırtına sonrası gökyüzünün temizlenmesi gibi.”",
-        bookSource: "Hermann Hesse — Siddhartha",
+        quote: "“Gevşemeyin, üzülmeyin; eğer inanıyorsanız üstün olan sizsiniz.”", source: "Âl-i İmrân Suresi, 139. Ayet",
+        bookQuote: "“Gözyaşları, ruhun yıkanma biçimidir. Bir fırtına sonrası gökyüzünün temizlenmesi gibi.”", bookSource: "Hermann Hesse — Siddhartha",
         reflection: "Hüzün, kalbin derinleşme çabasıdır. Duygunu bastırmak yerine ona yer aç; geçmesine izin verilen her duygu zamanla yerini içsel bir huzura bırakır.",
-        customLabel: "Küçük Bir Umut Notu",
-        customText: "Şu an hissettiğin ağırlık, fırtınadan hemen önceki havanın basıklığı gibidir. Yağmur yağacak, hava temizlenecek ve sen tekrar ferahça nefes alacaksın.",
+        customLabel: "Küçük Bir Umut Notu", customText: "Şu an hissettiğin ağırlık, fırtınadan hemen önceki havanın basıklığı gibidir. Yağmur yağacak, hava temizlenecek ve sen tekrar ferahça nefes alacaksın.",
         mathText: "Negatif Sayıların Çarpımı: Matematikte iki negatif sayının çarpımı pozitif bir değer verir (- x - = +). Hayatta da üst üste gelen iki zorluk, beklenmedik güçlü bir farkındalık doğurabilir."
       },
       kaygili: {
-        quote: "“Allah bana yeter. O'ndan başka ilâh yoktur. Ben yalnızca O'na tevekkül ettim.”",
-        source: "Tevbe Suresi, 129. Ayet",
-        bookQuote: "“Geleceğin yükünü bugünden omuzlamak, bugünün neşesini yok etmekten başka bir işe yaramaz.”",
-        bookSource: "Seneca — Yaşamın Kısalığı Üzerine",
+        quote: "“Allah bana yeter. O'ndan başka ilâh yoktur. Ben yalnızca O'na tevekkül ettim.”", source: "Tevbe Suresi, 129. Ayet",
+        bookQuote: "“Geleceğin yükünü bugünden omuzlamak, bugünün neşesini yok etmekten başka bir işe yaramaz.”", bookSource: "Seneca — Yaşamın Kısalığı Üzerine",
         reflection: "Kaygı, henüz gerçekleşmemiş bir geleceği bugünden sırtlanma çabasıdır. Kontrol edemediğin detayları serbest bırak ve zihnini şu ana davet et.",
-        customLabel: "Topraklanma Egzersizi",
-        customText: "Şu an gözlerini kapat. 4 saniye derin nefes al, 4 saniye tut ve 6 saniyede yavaşça ver. Zihnindeki felaket senaryoları şu an gerçek değil; sen güvendesin.",
+        customLabel: "Topraklanma Egzersizi", customText: "Şu an gözlerini kapat. 4 saniye derin nefes al, 4 saniye tut ve 6 saniyede yavaşça ver. Zihnindeki felaket senaryoları şu an gerçek değil; sen güvendesin.",
         mathText: "Limit Kavramı: Bir noktaya sonsuzca yaklaşırsın ama asla o noktadaki belirsizlik olamazsın. Kaygılar da zihnimizde sonsuz büyüyen belirsizliklerdir; limite değil, fonksiyona odaklanmak gerekir."
       },
       karmasik: {
-        quote: "“Olur ki bir şeyden hoşlanmazsınız ama o sizin için hayırlıdır; Allah bilir, siz bilmezsiniz.”",
-        source: "Bakara Suresi, 216. Ayet",
-        bookQuote: "“Zihnin karmaşık olduğu anlarda hiçbir karara zorlama kendini. Sis dağları sardığında yolcunun durması gerekir.”",
-        bookSource: "Amin Maalouf — Semerkant",
+        quote: "“Olur ki bir şeyden hoşlanmazsınız ama o sizin için hayırlıdır; Allah bilir, siz bilmezsiniz.”", source: "Bakara Suresi, 216. Ayet",
+        bookQuote: "“Zihnin karmaşık olduğu anlarda hiçbir karara zorlama kendini. Sis dağları sardığında yolcunun durması gerekir.”", bookSource: "Amin Maalouf — Semerkant",
         reflection: "Net olmamak da sürecin doğal bir parçası. Her şeyi hemen çözmek ya da anlamlandırmak zorunda değilsin; bazen sisin dağılmasını beklemek en doğrusudur.",
-        customLabel: "Düğüm Çözücü Yaklaşım",
-        customText: "Kafandaki tüm soruları bugün çözmek zorunda değilsin. Şu an kontrol edebileceğin tek bir küçük adımı seç ve gerisini zamana bırak.",
-        mathText: "Fraktal Geometri: İlk bakışta karmaşık ve kaos dolu görünen doğa şekilleri (kar tanesi, kıyılar), yakından incelendiğinde muazzam bir iç tekrara sahiptir. Karmaşa, düzenin henüz keşfedilmemiş halidir."
+        customLabel: "Düğüm Çözücü Yaklaşım", customText: "Kafandaki tüm soruları bugün çözmek zorunda değilsin. Şu an kontrol edebileceğin tek bir küçük adımı seç ve gerisini zamana bırak.",
+        mathText: "Fraktal Geometri: Kaos dolu görünen doğa şekilleri, yakından incelendiğinde muazzam bir iç tekrara sahiptir. Karmaşa, düzenin henüz keşfedilmemiş halidir."
       },
       merakli: {
-        quote: "“Göklerin ve yerin yaratılışında akıl sahipleri için ibretler vardır.”",
-        source: "Âl-i İmrân Suresi, 190. Ayet",
-        bookQuote: "“Dünya bir kitaptır ve seyahat etmeyenler veya merak duymayanlar sadece bir sayfasını okur.”",
-        bookSource: "St. Augustinus — İtiraflar",
+        quote: "“Göklerin ve yerin yaratılışında akıl sahipleri için ibretler vardır.”", source: "Âl-i İmrân Suresi, 190. Ayet",
+        bookQuote: "“Dünya bir kitaptır ve seyahat etmeyenler veya merak duymayanlar sadece bir sayfasını okur.”", bookSource: "St. Augustinus — İtiraflar",
         reflection: "Soru sormak ve öğrenmek, ruhun keşif yolculuğudur. Merak duygunu besle; her detayda gizlenmiş incelikleri fark etmek bakış açını tazeleyecektir.",
-        customLabel: "Ufuk Açıcı Bir Detay",
-        customText: "Arılar birbirlerine çiçeklerin yerini tarif etmek için özel bir dans yaparlar ve bu yön hesabını güneşin açısına göre milimetrik olarak gerçekleştirirler.",
+        customLabel: "Ufuk Açıcı Bir Detay", customText: "Arılar birbirlerine çiçeklerin yerini tarif etmek için özel bir dans yaparlar ve bu yön hesabını güneşin açısına göre milimetrik olarak gerçekleştirirler.",
         mathText: "Asal Sayılar: Kendinden ve 1'den başka hiçbir sayıya bölünmeyen özel yapılar. Sayılar teorisinin bu gizemli yapıtaşları, karmaşık evrenin özgün ve saf parçalarıdır."
       },
       minnettar: {
-        quote: "“Eğer şükrederseniz, elbette size olan nimetlerimi artırırım.”",
-        source: "İbrâhîm Suresi, 7. Ayet",
-        bookQuote: "“Elimde olan küçük şeylerle mutlu olmayı öğrendiğimde, evrenin bana ne kadar cömert davrandığını fark ettim.”",
-        bookSource: "Henry David Thoreau — Walden",
+        quote: "“Eğer şükrederseniz, elbette size olan nimetlerimi artırırım.”", source: "İbrâhîm Suresi, 7. Ayet",
+        bookQuote: "“Elimde olan küçük şeylerle mutlu olmayı öğrendiğimde, evrenin bana ne kadar cömert davrandığını fark ettim.”", bookSource: "Henry David Thoreau — Walden",
         reflection: "Şükür, sahip olunan küçük detaylardaki büyük zenginliği görebilme sanatıdır. Farkedilen ve değer verilen her nimet zihinde çoğalır.",
-        customLabel: "İyiliği Çoğaltma Görevi",
-        customText: "İçindeki bu güzel enerjiyi bugün sevdiğin birine sebepsizce 'İyi ki varsın' mesajı atarak veya bir canlıya tebessüm ederek paylaş.",
-        mathText: "Sonsuzluk (∞) ve Birikimli Toplam: Küçük ama sürekliliği olan adımlar, integralle birleştiğinde sonsuz büyüklükte alanlar yaratır. Minnet de birikerek hayatı genişleten bir integraldir."
+        customLabel: "İyiliği Çoğaltma Görevi", customText: "İçindeki bu güzel enerjiyi bugün sevdiğin birine sebepsizce 'İyi ki varsın' mesajı atarak veya bir canlıya tebessüm ederek paylaş.",
+        mathText: "Sonsuzluk (∞) ve Birikimli Toplam: Küçük ama sürekliliği olan adımlar, integralle birleştiğinde sonsuz büyüklükte alanlar yaratır. Minnet da birikerek hayatı genişleten bir integraldir."
       }
     };
 
-    // DOM Elementleri
     const buttons = document.querySelectorAll('.mood-btn');
     const placeholderCard = document.getElementById('placeholder-card');
     const contentCard = document.getElementById('content-card');
@@ -478,15 +382,11 @@
     const customLabel = document.getElementById('custom-label');
     const customText = document.getElementById('custom-text');
     const mathText = document.getElementById('math-text');
-    const authorText = document.getElementById('author-text');
 
-    // Tıklama Olayları
     buttons.forEach(button => {
       button.addEventListener('click', function() {
         const selectedMood = this.getAttribute('data-mood');
-
         document.documentElement.setAttribute('data-theme', selectedMood);
-
         buttons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
 
@@ -500,17 +400,32 @@
           customLabel.textContent = content.customLabel;
           customText.textContent = content.customText;
           mathText.textContent = content.mathText;
-          authorText.textContent = yazarinYazisi;
 
           placeholderCard.classList.add('hidden');
           contentCard.classList.remove('hidden');
-          
           contentCard.classList.remove('fade-in');
           void contentCard.offsetWidth;
           contentCard.classList.add('fade-in');
         }
       });
     });
+
+    function openModal(title, author, text) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-author').textContent = author;
+      document.getElementById('modal-text').textContent = text;
+      document.getElementById('book-modal').classList.add('active');
+    }
+
+    function closeModal(event) {
+      if (event.target.id === 'book-modal') {
+        document.getElementById('book-modal').classList.remove('active');
+      }
+    }
+
+    function closeModalDirect() {
+      document.getElementById('book-modal').classList.remove('active');
+    }
   </script>
 </body>
 </html>
