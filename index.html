@@ -110,20 +110,70 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* YAZARIN KALEMİNDEN SABİT BÖLÜM */
-    .standalone-author-box {
-      margin-top: 2.5rem;
+    /* KARŞILAMA BALONCUĞU STİLİ */
+    .welcome-bubble {
+      margin-top: 1.8rem;
+      background-color: var(--btn-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem 1.8rem;
+      text-align: left;
+      transition: background-color 0.6s ease, border-color 0.6s ease;
+    }
+    .welcome-bubble-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--accent-color);
+    }
+    .welcome-bubble-text {
+      font-size: 0.93rem;
+      line-height: 1.65;
+      opacity: 0.9;
+    }
+
+    /* YAZARIN KALEMİNDEN BÖLÜMÜ (KARTLI YAPISI) */
+    .author-section {
+      margin-top: 3rem;
+      text-align: left;
+    }
+    .author-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .author-articles-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .article-card {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
       border-left: 4px solid var(--accent-color);
-      padding: 2rem;
-      border-radius: 16px;
-      text-align: left;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-      transition: background-color 0.6s ease, border-color 0.6s ease;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, background-color 0.6s ease, border-color 0.6s ease;
     }
-    .standalone-author-box .body-text {
-      line-height: 1.75;
+    .article-card:hover {
+      transform: translateY(-2px);
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+    .article-excerpt {
+      font-size: 0.93rem;
+      line-height: 1.6;
+      opacity: 0.85;
+      margin-bottom: 1rem;
     }
 
     /* KİTAPLIK BÖLÜMÜ STİLLERİ */
@@ -158,11 +208,12 @@
     
     .read-more-btn {
       background-color: var(--btn-bg); color: var(--btn-text); border: 1px solid var(--border-color);
-      padding: 6px 14px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s ease;
+      padding: 6px 16px; border-radius: 15px; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease;
+      display: inline-block;
     }
     .read-more-btn:hover { background-color: var(--accent-color); color: #fff; }
 
-    /* MODAL */
+    /* MODAL (DETAY PENCERESİ) */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
@@ -172,7 +223,7 @@
     
     .modal-content {
       background-color: var(--card-bg); color: var(--text-color);
-      padding: 2rem; border-radius: 16px; max-width: 500px; width: 90%;
+      padding: 2.2rem; border-radius: 16px; max-width: 600px; width: 90%;
       max-height: 80vh; overflow-y: auto; position: relative;
       box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 1px solid var(--border-color);
     }
@@ -182,8 +233,8 @@
     }
     .close-modal:hover { opacity: 1; }
     .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 0.3rem; }
-    .modal-author { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1rem; text-transform: uppercase; }
-    .modal-text { font-size: 0.95rem; line-height: 1.7; opacity: 0.9; }
+    .modal-subtitle { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1rem; text-transform: uppercase; }
+    .modal-text { font-size: 0.98rem; line-height: 1.75; opacity: 0.9; }
 
     @media (max-width: 480px) {
       h1 { font-size: 2.3rem; }
@@ -250,20 +301,36 @@
       </div>
 
       <!-- ==========================================
-           YAZARIN KALEMİNDEN SABİT ALAN
+           KARŞILAMA / SIĞINAK BALONCUĞU
            ========================================== -->
-      <section class="standalone-author-box">
-        <span class="section-label">Yazarın Kaleminden</span>
-        <p class="body-text">
-          İlk nefesini "Oku" emriyle alan bir dinin mensubuyuz biz; akıl da evren de önümüzde keşfedilmeyi bekleyen açık bir kitap aslında. Ama bu okuma işi öyle sadece harfleri dizip geçmek değil. Evrenin dokusuna, atomun çekirdeğine, hatta Kutsal Kitap’ın kendi yapısına işlenmiş o muazzam matematiği fark etmek meselesi.<br><br>
-          Baktığında Kur’an, sadece kelimelerden ibaret bir metin değil; kendi içinde inanılmaz bir sayısal denge taşıyor. Birbiriyle zıt ya da ilişkili kavramların tekrarlanma sayılarına bakınca insan gerçekten hayret ediyor, tesadüf deyip geçemiyorsun:<br><br>
-          • <strong>Dünya ve Ahiret:</strong> İkisi de tam 115’er kez geçiyor.<br>
-          • <strong>Melek ve Şeytan:</strong> Biri iyiliğin, diğeri kötülüğün simgesi; ikisi de eşit şekilde 88’er defa anılıyor.<br>
-          • <strong>Gece ve Gündüz:</strong> Dengeleri bozulmasın diye sanki, ikisi de 57’şer kez tekrarlanıyor.<br>
-          • <strong>Deniz ve Kara:</strong> İşte burası beni çok etkiliyor; deniz kelimesi 32, kara kelimesi 13 kez geçiyor. Toplayınca 45 yapıyor. Oranladığında denizler %71.1, karalar %28.9 çıkıyor. Yani dünyamızdaki su ve kara alanlarının gerçek coğrafi oranının birebir aynısı!<br>
-          • <strong>Zaman Meselesi:</strong> Koskoca kitapta <em>Gün</em> kelimesinin tam 365 kez, <em>Ay</em> kelimesinin ise 12 kez geçmesi sence tesadüf olabilir mi?<br><br>
-          İşte benim İslam’ın bilime bakışında gördüğüm şey tam olarak bu. Kur’an, evrenin ve zamanın kodlarını harflerle önümüze koyuyor; bize düşen de aynı matematiği doğada, laboratuvarda, gökyüzünde okumak. "Oku" emri sadece kâğıttaki yazıyı değil, aslında bu evreni ayakta tutan o kusursuz denklemi çözme çağrısı.
+      <section class="welcome-bubble">
+        <h3 class="welcome-bubble-title">Ruhuna Küçük Bir Mola: Burası Senin Sığınağın</h3>
+        <p class="welcome-bubble-text">
+          Günün hengamesinde bazen zihnimiz karmaşıklaşır, bazen bir üzüntü veya kaygı çöker üzerimize. Hepsi son derece insani. Ama o duygunun içinde yalnız kalmanı istemedik.<br><br>
+          Burayı, ihtiyacın olduğunda sığınabileceğin küçük bir nefes alanı olarak tasarladık. "Bugün nasıl hissediyorsun?" sorusuna verdiğin yanıt, arka planda renklerin iyileştirici gücünü harekete geçiriyor.<br><br>
+          Renklerin psikolojimiz üzerindeki etkisini ve beynimizi nasıl harekete geçirdiğini merak ettiysen, "Yazarın Kaleminden" bölümümüzü okuyabilirsin.<br><br>
+          Ne zaman yorulursan buradayız. Duygunu seç, derin bir nefes al ve kelimelerin seni dinlendirmesine izin ver.
         </p>
+      </section>
+
+      <!-- ==========================================
+           YAZARIN KALEMİNDEN (KARTLAR BÖLÜMÜ)
+           ========================================== -->
+      <section class="author-section">
+        <h2 class="author-section-title">Yazarın Kaleminden</h2>
+        
+        <div class="author-articles-grid">
+          
+          <!-- YAZI 1 -->
+          <div class="article-card">
+            <h3 class="article-title" onclick="openModal('Kur\'an Dini, Matematik Dili', 'Yazarın Kaleminden', article1Text)">Kur'an Dini, Matematik Dili</h3>
+            <p class="article-excerpt">İlk nefesini "Oku" emriyle alan bir dinin mensubuyuz biz; akıl da evren de önümüzde keşfedilmeyi bekleyen açık bir kitap aslında...</p>
+            <button class="read-more-btn" onclick="openModal('Kur\'an Dini, Matematik Dili', 'Yazarın Kaleminden', article1Text)">Devamını Gör</button>
+          </div>
+
+          <!-- BURAYA YENİ YAZI KARTLARI EKLENEBİLİR -->
+
+        </div>
       </section>
 
       <!-- ==========================================
@@ -306,18 +373,31 @@
     </main>
   </div>
 
-  <!-- AÇILIR DETAY PENCERESİ (MODAL) -->
-  <div id="book-modal" class="modal-overlay" onclick="closeModal(event)">
+  <!-- GENEL AÇILIR DETAY PENCERESİ (MODAL) -->
+  <div id="general-modal" class="modal-overlay" onclick="closeModal(event)">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModalDirect()">&times;</span>
       <h3 id="modal-title" class="modal-title"></h3>
-      <p id="modal-author" class="modal-author"></p>
+      <p id="modal-subtitle" class="modal-subtitle"></p>
       <hr class="divider">
-      <p id="modal-text" class="modal-text"></p>
+      <div id="modal-text" class="modal-text"></div>
     </div>
   </div>
 
   <script>
+    // Yazarın Kaleminden Yazıları
+    const article1Text = `
+      İlk nefesini "Oku" emriyle alan bir dinin mensubuyuz biz; akıl da evren de önümüzde keşfedilmeyi bekleyen açık bir kitap aslında. Ama bu okuma işi öyle sadece harfleri dizip geçmek değil. Evrenin dokusuna, atomun çekirdeğine, hatta Kutsal Kitap’ın kendi yapısına işlenmiş o muazzam matematiği fark etmek meselesi.<br><br>
+      Baktığında Kur’an, sadece kelimelerden ibaret bir metin değil; kendi içinde inanılmaz bir sayısal denge taşıyor. Birbiriyle zıt ya da ilişkili kavramların tekrarlanma sayılarına bakınca insan gerçekten hayret ediyor, tesadüf deyip geçemiyorsun:<br><br>
+      • <strong>Dünya ve Ahiret:</strong> İkisi de tam 115’er kez geçiyor.<br>
+      • <strong>Melek ve Şeytan:</strong> Biri iyiliğin, diğeri kötülüğün simgesi; ikisi de eşit şekilde 88’er defa anılıyor.<br>
+      • <strong>Gece ve Gündüz:</strong> Dengeleri bozulmasın diye sanki, ikisi de 57’şer kez tekrarlanıyor.<br>
+      • <strong>Deniz ve Kara:</strong> İşte burası beni çok etkiliyor; deniz kelimesi 32, kara kelimesi 13 kez geçiyor. Toplayınca 45 yapıyor. Oranladığında denizler %71.1, karalar %28.9 çıkıyor. Yani dünyamızdaki su ve kara alanlarının gerçek coğrafi oranının birebir aynısı!<br>
+      • <strong>Zaman Meselesi:</strong> Koskoca kitapta <em>Gün</em> kelimesinin tam 365 kez, <em>Ay</em> kelimesinin ise 12 kez geçmesi sence tesadüf olabilir mi?<br><br>
+      İşte benim İslam’ın bilime bakışında gördüğüm şey tam olarak bu. Kur’an, evrenin ve zamanın kodlarını harflerle önümüze koyuyor; bize düşen de aynı matematiği doğada, laboratuvarda, gökyüzünde okumak. "Oku" emri sadece kâğıttaki yazıyı değil, aslında bu evreni ayakta tutan o kusursuz denklemi çözme çağrısı.
+    `;
+
+    // Ruh Hali İçerikleri
     const moodContents = {
       sakin: {
         quote: "“Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.”", source: "Râd Suresi, 28. Ayet",
@@ -337,7 +417,7 @@
         quote: "“Gevşemeyin, üzülmeyin; eğer inanıyorsanız üstün olan sizsiniz.”", source: "Âl-i İmrân Suresi, 139. Ayet",
         bookQuote: "“Gözyaşları, ruhun yıkanma biçimidir. Bir fırtına sonrası gökyüzünün temizlenmesi gibi.”", bookSource: "Hermann Hesse — Siddhartha",
         reflection: "Hüzün, kalbin derinleşme çabasıdır. Duygunu bastırmak yerine ona yer aç; geçmesine izin verilen her duygu zamanla yerini içsel bir huzura bırakır.",
-        customLabel: "Küçük Bir Umut Notu", customText: "Şu an hissettiğin ağırlık, fırtınadan hemen önceki havanın basıklığı gibidir. Yağmur yağacak, hava temizlenecek ve sen tekrar ferahça nefes alacaksın.",
+        customLabel: "Küçük Bir Umut Notu", customText: "Şu an hissettiğin ağırlık, fırtınalı havanın basıklığı gibidir. Yağmur yağacak, hava temizlenecek ve sen tekrar ferahça nefes alacaksın.",
         mathText: "Negatif Sayıların Çarpımı: Matematikte iki negatif sayının çarpımı pozitif bir değer verir (- x - = +). Hayatta da üst üste gelen iki zorluk, beklenmedik güçlü bir farkındalık doğurabilir."
       },
       kaygili: {
@@ -366,7 +446,7 @@
         bookQuote: "“Elimde olan küçük şeylerle mutlu olmayı öğrendiğimde, evrenin bana ne kadar cömert davrandığını fark ettim.”", bookSource: "Henry David Thoreau — Walden",
         reflection: "Şükür, sahip olunan küçük detaylardaki büyük zenginliği görebilme sanatıdır. Farkedilen ve değer verilen her nimet zihinde çoğalır.",
         customLabel: "İyiliği Çoğaltma Görevi", customText: "İçindeki bu güzel enerjiyi bugün sevdiğin birine sebepsizce 'İyi ki varsın' mesajı atarak veya bir canlıya tebessüm ederek paylaş.",
-        mathText: "Sonsuzluk (∞) ve Birikimli Toplam: Küçük ama sürekliliği olan adımlar, integralle birleştiğinde sonsuz büyüklükte alanlar yaratır. Minnet da birikerek hayatı genişleten bir integraldir."
+        mathText: "Sonsuzluk (∞) ve Birikimli Toplam: Küçük ama sürekliliği olan adımlar, integralle birleştiğinde sonsuz büyüklükte alanlar yaratır. Minnet de birikerek hayatı genişleten bir integraldir."
       }
     };
 
@@ -410,21 +490,21 @@
       });
     });
 
-    function openModal(title, author, text) {
+    function openModal(title, subtitle, text) {
       document.getElementById('modal-title').textContent = title;
-      document.getElementById('modal-author').textContent = author;
-      document.getElementById('modal-text').textContent = text;
-      document.getElementById('book-modal').classList.add('active');
+      document.getElementById('modal-subtitle').textContent = subtitle;
+      document.getElementById('modal-text').innerHTML = text;
+      document.getElementById('general-modal').classList.add('active');
     }
 
     function closeModal(event) {
-      if (event.target.id === 'book-modal') {
-        document.getElementById('book-modal').classList.remove('active');
+      if (event.target.id === 'general-modal') {
+        document.getElementById('general-modal').classList.remove('active');
       }
     }
 
     function closeModalDirect() {
-      document.getElementById('book-modal').classList.remove('active');
+      document.getElementById('general-modal').classList.remove('active');
     }
   </script>
 </body>
