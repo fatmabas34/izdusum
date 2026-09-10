@@ -223,7 +223,7 @@
     
     .modal-content {
       background-color: var(--card-bg); color: var(--text-color);
-      padding: 2.2rem; border-radius: 16px; max-width: 600px; width: 90%;
+      padding: 2.2rem; border-radius: 16px; max-width: 650px; width: 90%;
       max-height: 80vh; overflow-y: auto; position: relative;
       box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 1px solid var(--border-color);
     }
@@ -235,6 +235,9 @@
     .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 0.3rem; }
     .modal-subtitle { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1rem; text-transform: uppercase; }
     .modal-text { font-size: 0.98rem; line-height: 1.75; opacity: 0.9; }
+    .modal-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin: 1.2rem 0 0.5rem 0; color: var(--accent-color); }
+    .modal-text ul { margin-left: 1.2rem; margin-bottom: 1rem; }
+    .modal-text li { margin-bottom: 0.5rem; }
 
     @media (max-width: 480px) {
       h1 { font-size: 2.3rem; }
@@ -328,7 +331,12 @@
             <button class="read-more-btn" onclick="openModal('Kur\'an Dini, Matematik Dili', 'Yazarın Kaleminden', article1Text)">Devamını Gör</button>
           </div>
 
-          <!-- BURAYA YENİ YAZI KARTLARI EKLENEBİLİR -->
+          <!-- YAZI 2 -->
+          <div class="article-card">
+            <h3 class="article-title" onclick="openModal('Renklerin Nöropsikolojisi ve Duygusal Denge', 'Yazarın Kaleminden', article2Text)">Renklerin Nöropsikolojisi ve Duygusal Denge</h3>
+            <p class="article-excerpt">Görsel algı, yalnızca dış dünyayı tanımlamamızı sağlamaz; doğrudan beynimizin duygu ve hormon merkezlerini uyarır...</p>
+            <button class="read-more-btn" onclick="openModal('Renklerin Nöropsikolojisi ve Duygusal Denge', 'Yazarın Kaleminden', article2Text)">Devamını Gör</button>
+          </div>
 
         </div>
       </section>
@@ -397,6 +405,48 @@
       İşte benim İslam’ın bilime bakışında gördüğüm şey tam olarak bu. Kur’an, evrenin ve zamanın kodlarını harflerle önümüze koyuyor; bize düşen de aynı matematiği doğada, laboratuvarda, gökyüzünde okumak. "Oku" emri sadece kâğıttaki yazıyı değil, aslında bu evreni ayakta tutan o kusursuz denklemi çözme çağrısı.
     `;
 
+    const article2Text = `
+      Görsel algı, yalnızca dış dünyayı tanımlamamızı sağlamaz; doğrudan beynimizin duygu ve hormon merkezlerini uyarır. Göze ulaşan ışık dalga boyları, retinadan geçerek beynin limbik sistem adı verilen duygusal kontrol merkezine ve otonom sinir sistemine iletilir. Bu süreçte her renk, beyinde farklı nörokimyasal tepkiler oluşturur.<br><br>
+      Olumsuz veya yorucu bir duygu durumundayken, beyni bu durumun aksi yönünde uyaracak "karşıt dalga boyları" kullanmak, nörolojik bir denge (homeostaz) sağlar.<br><br>
+      <h4>Duygusal Durumlar ve Biyolojik Karşılıkları</h4>
+      <ul>
+        <li><strong>Kaygılı (Anksiyete & Aşırı Uyarılma):</strong><br>
+        <em>Beyindeki Durumu:</em> Amigdala aşırı aktiftir; sempatik sinir sistemi devreye girerek kortizol ve adrenalin salgısını artırır. Kalp atışı ve nefes hızlanır.<br>
+        <em>Harekete Geçirilecek Karşıt Renk:</em> Açık Mavi / Turkuaz<br>
+        <em>Nörolojik Etkisi:</em> Mavi ışığın uzun dalga boyu olmaması, görsel korteksi yormaz. Parasempatik sinir sistemini tetikleyerek nabzı ve kan basıncını düşürür, zihne "güvendesin" sinyali gönderir.</li>
+        
+        <li><strong>Yorgun (Tükenmişlik & Düşük Enerji):</strong><br>
+        <em>Beyindeki Durumu:</em> Beyinsel kan akışı ve nörotransmiter aktivitesi yavaşlamıştır. Zihinsel veya fiziksel canlılık minimum düzeydedir.<br>
+        <em>Harekete Geçirilecek Karşıt Renk:</em> Canlı Yeşil / Mercan<br>
+        <em>Nörolojik Etkisi:</em> Yeşil, insan gözünün kırılma yapmadan en rahat odaklandığı odak noktasına sahiptir. Dopamin seviyesini destekleyerek zihne taze enerji ve biyolojik yenilenme hissi verir.</li>
+
+        <li><strong>Üzgün (Depresif Eğilim & İçe Dönüklük):</strong><br>
+        <em>Beyindeki Durumu:</em> Serotonin seviyesinde düşüş ve prefrontal kortekste baskılanma gözlenir. Zihin ağır ve düşük frekanslı çalışır.<br>
+        <em>Harekete Geçirilecek Karşıt Renk:</em> Sıcak Şeftali / Güneş Sarısı<br>
+        <em>Nörolojik Etkisi:</em> Orta ve yüksek dalga boylu bu sıcak tonlar, beyinde serotonin salgılanmasını uyarır. Zihinsel stresi azaltarak sıcaklık, iyimserlik ve canlılık duygusu oluşturur.</li>
+
+        <li><strong>Karmaşık (Zihinsel Bulanıklık & Bilişsel Aşırı Yükleme):</strong><br>
+        <em>Beyindeki Durumu:</em> Beynin prefrontal korteksi aynı anda çok fazla uyaranı işlemeye çalıştığı için bilişsel yorulma yaşanır.<br>
+        <em>Harekete Geçirilecek Karşıt Renk:</em> Saf Beyaz / Soft Adaçayı Yeşili<br>
+        <em>Nörolojik Etkisi:</em> Beyne giren görsel gürültüyü sıfırlayarak bilişsel yükü hafifletir. Zihinsel odaklanmayı ve berraklığı artırır.</li>
+
+        <li><strong>Sakin (Dengeli & Huzurlu):</strong><br>
+        <em>Beyindeki Durumu:</em> Alfa beyin dalgaları hakimdir. Zihin dingindir fakat aşırı pasifleşme riski taşır.<br>
+        <em>Harekete Geçirilecek Karşıt Renk:</em> Yumuşak Toprak ve Ahşap Tonları (Sıcak Bej)<br>
+        <em>Nörolojik Etkisi:</em> Mevcut dinginliği bozmadan zihni topraklar; güven ve köklenme hissini pekiştirir.</li>
+
+        <li><strong>Meraklı (Keşif & Yüksek Odak):</strong><br>
+        <em>Beyindeki Durumu:</em> Dopaminerjik sistem aktiftir, zihin uyarılmaya ve öğrenmeye açıktır.<br>
+        <em>Harekete Geçirilecek Karşıt Renk:</em> Derin Lacivert / Gece Mavisi<br>
+        <em>Nörolojik Etkisi:</em> Aşırı uyarılmayı ve dikkat dağınıklığını önleyerek merak duygusunun derin bir odaklanmaya ve analitik düşünceye dönüşmesini sağlar.</li>
+
+        <li><strong>Minnettar (Tatmin & Kalp Merkezli Huzur):</strong><br>
+        <em>Beyindeki Durumu:</em> Oksitosin ve endorfin seviyeleri yüksektir. Sistem tamamen dengededir.<br>
+        <em>Harekete Geçirilecek Karşıt Renk:</em> Gül Kurusu / Sıcak Altın Tonları<br>
+        <em>Nörolojik Etkisi:</em> Duygusal doyumu destekler, zihinsel şefkat ve bağ kurma merkezlerini uyarır.</li>
+      </ul>
+    `;
+
     // Ruh Hali İçerikleri
     const moodContents = {
       sakin: {
@@ -446,7 +496,7 @@
         bookQuote: "“Elimde olan küçük şeylerle mutlu olmayı öğrendiğimde, evrenin bana ne kadar cömert davrandığını fark ettim.”", bookSource: "Henry David Thoreau — Walden",
         reflection: "Şükür, sahip olunan küçük detaylardaki büyük zenginliği görebilme sanatıdır. Farkedilen ve değer verilen her nimet zihinde çoğalır.",
         customLabel: "İyiliği Çoğaltma Görevi", customText: "İçindeki bu güzel enerjiyi bugün sevdiğin birine sebepsizce 'İyi ki varsın' mesajı atarak veya bir canlıya tebessüm ederek paylaş.",
-        mathText: "Sonsuzluk (∞) ve Birikimli Toplam: Küçük ama sürekliliği olan adımlar, integralle birleştiğinde sonsuz büyüklükte alanlar yaratır. Minnet de birikerek hayatı genişleten bir integraldir."
+        mathText: "Sonsuzluk (∞) ve Birikimli Toplam: Küçük ama sürekliliği olan adımlar, integralle birleştiğinde sonsuz büyüklükte alanlar yaratır. Minnet da birikerek hayatı genişleten bir integraldir."
       }
     };
 
